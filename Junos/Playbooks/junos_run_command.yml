@@ -1,0 +1,17 @@
+---
+- name: This Playbook allows you to run a command using the cmd var
+  hosts: juniper
+  vars:
+    command: "{{ cmd }}"
+
+  tasks:
+
+    - name: Run and Juniper show command
+      junipernetworks.junos.junos_command:
+        commands: show "{{ command }}"
+      register: results
+
+    - name: display results
+      debug:
+        var: result.stdout_lines
+        
