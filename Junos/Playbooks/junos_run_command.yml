@@ -13,5 +13,4 @@
 
     - name: display results
       debug:
-        var: results.stdout_lines
-        
+        var: results.stdout_lines    
