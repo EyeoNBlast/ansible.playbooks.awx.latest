@@ -6,7 +6,7 @@
   tasks:
 
   - name: run multiple commands on remote nodes
-    junos_command:
+    junipernetworks.junos.junos_command:
       commands: show interfaces
     register: result
 
