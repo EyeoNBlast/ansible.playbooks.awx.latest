@@ -1,8 +1,8 @@
 ---
 - name: Dislay the configuration of the Firewall
   hosts: juniper1
-  vars:
-    - output: "{{ output_type }}"
+  #vars:
+  #  - output: "{{ output_type }}"
 
 
   tasks:
