@@ -10,3 +10,8 @@
     junipernetworks.junos.junos_facts:
       gather_subset: config
       config_format: "{{ output }}"
+    register: results
+
+  - name: display results
+    debug:
+      var: results.stdout_lines 
