@@ -6,8 +6,7 @@
 
 
   tasks:
-  - name: Gather Facts of the Firewall
-    junipernetworks.junos.junos_facts:
-      gather_subset: config
-      config_format: "{{ output }}"
-    register: result
+  - name: run rpc on the remote device to pull config and display in var format
+    junipernetworks.junos.junos_command:
+      commands: show configuration
+      display:  "{{ output }}"
