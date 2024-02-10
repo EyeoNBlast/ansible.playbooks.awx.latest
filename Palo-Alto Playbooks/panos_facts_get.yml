@@ -1,0 +1,18 @@
+- hosts: '{{ target | default("firewall") }}'
+  connection: local
+
+  vars:
+    device:
+      ip_address: '{{ ip_address }}'
+      username: '{{ username | default(omit) }}'
+      password: '{{ password | default(omit) }}'
+      api_key: '{{ api_key | default(omit) }}'
+
+  tasks:
+    - name: Gather facts for device
+      paloaltonetworks.panos.panos_facts:
+        provider: '{{ device }}'
+
+    - name: Display model, PAN-OS version
+      ansible.builtin.debug:
+        msg: "Model: {{ ansible_facts['net_model'] }}, version: {{ ansible_facts['net_version'] }}"
