@@ -1,13 +1,13 @@
 ---
 - name: Gather system info
-  hosts: paloalto1
+  hosts: "firewall"
   connection: local
 
   vars:
     device:
-      ip_address: 192.168.239.131
-      username: admin
-      password: admin
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
 
   collections:
     - paloaltonetworks.panos
