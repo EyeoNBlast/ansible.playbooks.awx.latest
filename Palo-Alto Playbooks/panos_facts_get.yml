@@ -1,3 +1,4 @@
+---
 - hosts: '{{ target | default("firewall") }}'
   connection: local
 
