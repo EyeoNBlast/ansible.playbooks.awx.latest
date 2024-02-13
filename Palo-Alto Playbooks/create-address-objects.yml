@@ -26,3 +26,11 @@
         name: "destination-server"
         value: "192.168.80.5/32"
         description: "Address object 2 from Ansible"
+
+  tasks:
+    - name: Commit candidate configuration
+      paloaltonetworks.panos.panos_commit_firewall:
+        provider: "{{ device }}"
+      register: results
+    - debug:
+        msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
