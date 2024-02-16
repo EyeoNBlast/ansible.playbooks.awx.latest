@@ -1,9 +1,0 @@
----
-- name: Junos Command Playbook
-  hosts: all
-  tasks:
-
-    - name: run commands and specify the output format
-      junos_command:
-        commands: show version
-        display: json
