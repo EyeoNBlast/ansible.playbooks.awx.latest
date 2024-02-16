@@ -1,0 +1,17 @@
+---
+- name: Get device information
+  hosts: juniper1
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Get software and uptime information
+      juniper.device.command:        
+        commands: 
+          - "show version"        
+          - "show system uptime"
+      register: junos_result
+
+    - name: Print response
+      debug:
+        var: junos_result
