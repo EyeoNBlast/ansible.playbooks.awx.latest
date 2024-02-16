@@ -1,7 +1,6 @@
 ---
 - name: Get device information
   hosts: juniper1
-  connection: local
   gather_facts: no
 
   tasks:
