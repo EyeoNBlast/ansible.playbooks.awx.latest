@@ -1,0 +1,11 @@
+---
+- name: Configure Security Zone on an Interface
+  hosts: juniper1
+  vars:
+    - 
+
+  tasks:
+
+    - name: Configure a Secuirty Zone on a Firewall
+      junipernetworks.junos.junos_security_zones:
+        config:

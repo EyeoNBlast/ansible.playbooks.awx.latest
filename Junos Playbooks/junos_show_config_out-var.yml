@@ -1,0 +1,16 @@
+---
+- name: Configuration of the Firewall
+  hosts: juniper1
+  vars:
+    - output: "{{ output_type }}" ## Output Types are json, xml and set
+
+  tasks:
+
+  - name: run rpc on the remote device to pull config and display in var format
+    junipernetworks.junos.junos_command:
+      commands: show configuration
+      display: "{{ output }}"
+    register: result
+
+  - name: Command Results in {{ output }} format
+    debug: var=result.stdout_lines[0]
