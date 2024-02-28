@@ -1,0 +1,12 @@
+---
+##################################################
+# Source info
+hostname_source:
+source_address:
+soruce_description:
+
+##################################################
+# Destination Info
+hostname_destination:
+destination_address:
+destination_description:
