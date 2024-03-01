@@ -1,0 +1,50 @@
+---
+####################################################################
+# Source Address info
+#hostname_source - Name of Object
+hostname_source: Jumphost-1_10.10.10.50
+#source_address - IPV4 address with CDIR
+source_address: 10.10.10.50/32
+#source_description - Description of Device
+source_description: JumpHost 1
+
+# Destination Address Info
+#hostname_source - Name of Object
+hostname_destination: Web-Server-1_10.10.20.25
+#destination_address - IPV4 address with CDIR
+destination_address: 10.10.20.25/32
+#destination_description - Description of Device
+destination_description: Web Server 1
+
+####################################################################
+
+# Application Information PA App ID
+# ssl, web-browsing, ssh, tftp, ftp, dhcp, dns, ping
+# If needing multiple applications seperate with , e.g ssh, ssl
+# If using a custom port only set application: any
+# If a custom service isnt required un playbook create-security-policy-app.yml
+application: ssh, ssl
+
+##################################################
+# Service Information
+# If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
+# If only an application is required set service_name: any
+service_name: any
+#service_protocol: tcp
+#service_destination_port: 22
+#service_description: SSH
+
+##################################################
+# Security Policy Information
+# 
+policy_name: Web Server SSH and Web access
+policy_source_zone: dmz
+policy_destination_zone: users
+policy_action: permit
+
+# Policy Logging 
+# Log at session start log_start: true / log_end: false
+# log at session end log_start: false / log_end: true
+# log at session start and end log_start: true / log_end: true
+log_start: false
+log_end: true

@@ -1,0 +1,83 @@
+---
+- name: Create Security Policy Source / Destination Addresses
+  hosts: "firewall"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+    - vars/req123456.yml
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create source address object "{{ hostname_source }}"
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ hostname_source }}"
+        value: "{{ source_address }}"
+        description: "{{ source_description }}"
+
+    - name: Create destination address object "{{ hostname_destination }}"
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ hostname_destination }}"
+        value: "{{ destination_address }}"
+        description: "{{ destination_description }}"
+
+- name: Create Security Policy {{ policy_name }}
+  hosts: "firewall"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+    - vars/req123456.yml
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Add example rule 1
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        rule_name: "{{ policy_name }}"
+        source_zone: ["{{ policy_source_zone }}"]
+        source_ip: ["{{ source_address }}"]
+        destination_zone: ["{{ policy_destination_zone }}"]
+        destination_ip: ["{{ destination_address }}"]
+        application: ["{{ application }}"]
+        service: ["{{ service_name }}"]
+        action: "{{ policy_action }}"
+        log_start: "{{ log_start }}"
+        log_end: "{{ log_end }}"
+
+- name: Commit firewall candidate configuration
+  hosts: "firewall"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Commit candidate configuration
+      paloaltonetworks.panos.panos_commit_firewall:
+        provider: "{{ device }}"
+      register: results
+    - debug:
+        msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
