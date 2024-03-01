@@ -1,7 +1,7 @@
 ---
 ##################################################
 # Security Policy Information
-policy_name:
-policy_source_zone:
-policy_destination_zone:
-policy_action: 
+policy_name: Web Server SSH access
+policy_source_zone: dmz
+policy_destination_zone: users
+policy_action: permit

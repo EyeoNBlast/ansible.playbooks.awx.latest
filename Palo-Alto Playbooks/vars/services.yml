@@ -1,7 +1,7 @@
 ---
 ##################################################
 # Service Information
-service_name: 
-service_protocol: 
-service_destination_port: 
-service_description: 
+service_name: tcp-22
+service_protocol: tcp
+service_destination_port: 22
+service_description: SSH
