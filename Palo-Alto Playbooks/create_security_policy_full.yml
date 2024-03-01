@@ -1,5 +1,5 @@
 ---
-- name: Create address objects
+- name: Create Security Policy Full
   hosts: "firewall"
   connection: local
 
@@ -12,10 +12,13 @@
   vars_files:
     - vars/objects.yml
     - vars/services.yml
-    
+    - vars/application.yml
+    - vars/security.yml
+
   collections:
     - paloaltonetworks.panos
 
+- name: Create Security Policy Addressing "{{ hostname_source }}" "{{ hostname_destination }}"
   tasks:
     - name: Create source address object "{{ hostname_source }}"
       paloaltonetworks.panos.panos_address_object:
@@ -31,6 +34,7 @@
         value: "{{ destination_address }}"
         description: "{{ destination_description }}"
 
+- name: Create Security Policy Service {{ service_name }}
   tasks:
     - name: Create service object "{{ service_name }}"
       paloaltonetworks.panos.panos_service_object:
@@ -39,3 +43,17 @@
         protocol: "{{ service_protocol }}"
         destination_port: "{{ service_destination_port }}"
         description: "{{ service_description }}"
+
+- name: Create Security Policy {{ policy_name }}
+  tasks:
+    - name: Add example rule 1
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        rule_name: "{{ policy_name }}"
+        source_zone: ["{{ policy_source_zone }}"]
+        source_ip: ["{{ source_address }}"]
+        destination_zone: ["{{ policy_destination_zone }}"]
+        destination_ip: ["{{ destination_address }}"]
+        application: ["{{ application }}"]
+        service: ["{{ service_name }}"]
+        action: "{{ policy_action }}"
