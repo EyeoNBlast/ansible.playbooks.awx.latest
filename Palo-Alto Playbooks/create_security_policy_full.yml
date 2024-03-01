@@ -1,0 +1,56 @@
+---
+- name: Create address objects
+  hosts: "firewall"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+    - vars/objects.yml
+    - vars/services.yml
+    - vars/application.yml
+    - vars/security.yml
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create source address object
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ hostname_source }}"
+        value: "{{ source_address }}"
+        description: "{{ source_description }}"
+
+    - name: Create destination address object
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ hostname_destination }}"
+        value: "{{ destination_address }}"
+        description: "{{ destination_description }}"
+
+  tasks:
+    - name: Create service object 'tcp-12345'
+      paloaltonetworks.panos.panos_service_object:
+        provider: "{{ device }}"
+        name: "{{ service_name }}"
+        protocol: "{{ service_protocol }}"
+        destination_port: "{{ service_destination_port }}"
+        description: "{{ service_description }}"
+
+  tasks:
+    - name: Add example rule 1
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        rule_name: "{{ policy_name }}"
+        source_zone: ["{{ policy_source_zone }}"]
+        source_ip: ["{{ hostname_source }}"]
+        destination_zone: ["{{ policy_destination_zone }}"]
+        destination_ip: ["destination-server"]
+        application: ["{{ application }}"]
+        service: ["{{ service_name }}"]
+        action: "allow"
