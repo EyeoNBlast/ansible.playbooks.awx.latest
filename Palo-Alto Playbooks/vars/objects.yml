@@ -7,6 +7,6 @@ source_description: Web Server 1
 
 ##################################################
 # Destination Info
-hostname_destination: Web_Server_1_192.168.250.10
+hostname_destination: Web_Server_2_192.168.250.15
 destination_address: 192.168.250.15/32
 destination_description: Web Server 2
