@@ -8,13 +8,14 @@
       ip_address: "{{ ip_address }}"
       username: "{{ username }}"
       password: "{{ password }}"
-    hostname_source: "{{ Web_Server_1 }}"
-    source_address: "{{ 192.168.120.8/32 }}"
-    source_description: "{{ NGINX Web Server }}"
 
-    hostname_destination: "{{ Web_Server_2 }}"
-    destination_address: "{{ 192.168.80.5/32 }}"
-    destination_description: "{{ NGINX Web Server 2 }}"
+    hostname_source: "Web_Server_1"
+    source_address: "192.168.120.8/32"
+    source_description: "NGINX Web Server"
+
+    hostname_destination: "Web_Server_2"
+    destination_address: "192.168.80.5/32"
+    destination_description: "NGINX Web Server 2"
 
   vars_files:
     - vars/objects.yml
