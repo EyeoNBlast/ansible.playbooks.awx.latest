@@ -30,31 +30,6 @@
         value: "{{ destination_address }}"
         description: "{{ destination_description }}"
 
-- name: Create Security Policy Service {{ service_name }}
-  hosts: "firewall"
-  connection: local
-
-  vars:
-    device:
-      ip_address: "{{ ip_address }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-
-  vars_files:
-    - vars/req123456.yml
-
-  collections:
-    - paloaltonetworks.panos
-
-  tasks:
-    - name: Create service object "{{ service_name }}"
-      paloaltonetworks.panos.panos_service_object:
-        provider: "{{ device }}"
-        name: "{{ service_name }}"
-        protocol: "{{ service_protocol }}"
-        destination_port: "{{ service_destination_port }}"
-        description: "{{ service_description }}"
-
 - name: Create Security Policy {{ policy_name }}
   hosts: "firewall"
   connection: local
