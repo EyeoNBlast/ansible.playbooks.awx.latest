@@ -37,11 +37,3 @@
         name: "{{ hostname_destination }}"
         value: "{{ destination_address }}"
         description: "{{ destination_description }}"
-
-  tasks:
-    - name: Commit candidate configuration
-      paloaltonetworks.panos.panos_commit_firewall:
-        provider: "{{ device }}"
-      register: results
-    - debug:
-        msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
