@@ -19,14 +19,14 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create source address object
+    - name: Create source address object "{{ hostname_source }}"
       paloaltonetworks.panos.panos_address_object:
         provider: "{{ device }}"
         name: "{{ hostname_source }}"
         value: "{{ source_address }}"
         description: "{{ source_description }}"
 
-    - name: Create destination address object
+    - name: Create destination address object "{{ hostname_destination }}"
       paloaltonetworks.panos.panos_address_object:
         provider: "{{ device }}"
         name: "{{ hostname_destination }}"
@@ -34,7 +34,7 @@
         description: "{{ destination_description }}"
 
   tasks:
-    - name: Create service object 'tcp-12345'
+    - name: Create service object "{{ service_name }}"
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
         name: "{{ service_name }}"
