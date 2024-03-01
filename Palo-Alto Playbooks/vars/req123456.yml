@@ -40,7 +40,8 @@ service_name: any
 policy_name: Web Server SSH and Web access
 policy_source_zone: dmz
 policy_destination_zone: users
-policy_action: permit
+# Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
+policy_action: allow
 
 # Policy Logging 
 # Log at session start log_start: true / log_end: false
