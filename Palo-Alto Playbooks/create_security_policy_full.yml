@@ -48,9 +48,9 @@
         provider: "{{ device }}"
         rule_name: "{{ policy_name }}"
         source_zone: ["{{ policy_source_zone }}"]
-        source_ip: ["{{ hostname_source }}"]
+        source_ip: ["{{ source_address }}"]
         destination_zone: ["{{ policy_destination_zone }}"]
-        destination_ip: ["destination-server"]
+        destination_ip: ["{{ destination_address }}"]
         application: ["{{ application }}"]
         service: ["{{ service_name }}"]
         action: "{{ policy_action }}"
