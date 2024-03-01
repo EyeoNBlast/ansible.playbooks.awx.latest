@@ -53,4 +53,4 @@
         destination_ip: ["destination-server"]
         application: ["{{ application }}"]
         service: ["{{ service_name }}"]
-        action: "allow"
+        action: "{{ policy_action }}"

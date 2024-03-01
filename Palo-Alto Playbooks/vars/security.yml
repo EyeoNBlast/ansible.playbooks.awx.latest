@@ -4,3 +4,4 @@
 policy_name:
 policy_source_zone:
 policy_destination_zone:
+policy_action: 

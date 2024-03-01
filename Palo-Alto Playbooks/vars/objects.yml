@@ -1,12 +1,18 @@
 ---
 ##################################################
 # Source info
+#hostname_source - Name of Object
 hostname_source: Web_Server_1_192.168.250.10
+#source_address - IPV4 address with CDIR
 source_address: 192.168.250.10/32
+#source_description - Description of Device
 source_description: Web Server 1
 
 ##################################################
 # Destination Info
+#hostname_source - Name of Object
 hostname_destination: Web_Server_2_192.168.250.15
+#destination_address - IPV4 address with CDIR
 destination_address: 192.168.250.15/32
+#destination_description - Description of Device
 destination_description: Web Server 2
