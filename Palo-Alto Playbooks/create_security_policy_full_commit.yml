@@ -93,7 +93,6 @@
         service: ["{{ service_name }}"]
         action: "{{ policy_action }}"
 
----
 - name: Commit firewall candidate configuration
   hosts: "firewall"
   connection: local
