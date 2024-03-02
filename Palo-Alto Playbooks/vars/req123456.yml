@@ -28,9 +28,13 @@ application: ['ssh', 'ftp']
 
 ##################################################
 # Service Information
+# If you need to add multiple service objects create a .csv file and use playbook create-multiple-service-objects.yml
+# If you need to add multiple service objects and add them to a group create a .csv file and use playbook create-multiple-service-objects-group.yml
+# and specificy the service-group name below e.g service_name: service_group
+
 # If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
 # If only an application is required set service_name: any
-service_name: any
+service_name: test_group
 #service_protocol: tcp
 #service_destination_port: 22
 #service_description: SSH
