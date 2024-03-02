@@ -16,8 +16,8 @@
     - name: Get all security rules
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
-        # gathered_filter options: "*" = all rules, 'name matches-regex .*?' 
-        gathered_filter: "name matchex-regex .*Web"
+        # gathered_filter options: "*" = all rules, 
+        gathered_filter: "name contains Web"
         state: gathered
       register: sec_rules
 
