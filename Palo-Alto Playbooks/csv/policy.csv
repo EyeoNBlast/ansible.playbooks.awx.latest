@@ -2,4 +2,4 @@ rule_name;source_zone;source_ip;destination_zone;destination_ip;application;serv
 Any_Any-SSH-FTP;any;any;any;any;ssh,ftp;any;allow;FALSE;TRUE
 Any_Any-TFTP;any;any;any;any;tftp;any;allow;FALSE;TRUE
 Any_Any-SSL;any;any;any;any;ssl;any;allow;FALSE;TRUE
-Any_Any-Web;any;any;any;any;Web-browsing;any;deny;TRUE;FALSE
+Any_Any-Web;any;any;any;any;web-browsing;any;deny;TRUE;FALSE
