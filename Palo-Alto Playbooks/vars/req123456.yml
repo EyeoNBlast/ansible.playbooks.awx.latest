@@ -55,4 +55,4 @@ policy_action: allow
 log_start: false
 log_end: true
 # Specifiy a Logging Profile
-log_setting: none
+#log_setting: none
