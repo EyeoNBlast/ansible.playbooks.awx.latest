@@ -22,13 +22,13 @@
                         - junos-https
                     destination_address:
                       address:
-                        - 
-                        -
+                        - address1
+                        - address2
                     source_address:
                       address:
-                        -
-                        -
-                  name: 
+                        - address3
+                        - address4
+                  name: 111
                   then:
                     count: true
                     deny: false
