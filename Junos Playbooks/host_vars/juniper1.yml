@@ -1,2 +1,4 @@
 ---
+ansible_connection: ansible.netcommon.netconf
+ansible_network_os: junipernetworks.junos.junos
 ansible_host: 192.168.4.42
