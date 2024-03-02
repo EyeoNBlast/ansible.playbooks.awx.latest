@@ -18,7 +18,6 @@
         provider: "{{ device }}"
         # 
         gather_subset: ['config']
-        state: gathered
       register: outputs
 
     - name: Display information
