@@ -16,8 +16,8 @@
     - name: Gather facts for device
       paloaltonetworks.panos.panos_facts:
         provider: "{{ device }}"
-        # 
-        gather_subset: ['config']
+        # config, system, session, vr, vsys, ha, interface
+        gather_subset: ['system']
       register: outputs
 
     - name: Display information
