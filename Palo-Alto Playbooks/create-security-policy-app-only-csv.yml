@@ -19,6 +19,7 @@
       ansible.builtin.read_csv:
         path: "{{ csv_filename }}"
         key: rule_name
+        delimiter: ';'
       register: csv_data
 
     - name: Create security policy variables
