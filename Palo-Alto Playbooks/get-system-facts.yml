@@ -1,0 +1,26 @@
+---
+- name: Gather system info
+  hosts: firewall
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Gather facts for device
+      paloaltonetworks.panos.panos_facts:
+        provider: "{{ device }}"
+        # 
+        gather_subset: ['config']
+        state: gathered
+      register: outputs
+
+    - name: Display information
+      ansible.builtin.debug:
+        msg: "{{ outputs }}"
