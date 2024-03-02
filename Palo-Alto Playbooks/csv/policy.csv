@@ -1,2 +1,3 @@
 rule_name,source_zone,source_ip,destination_zone,destination_ip,application,service,action,log_start,log_end
-Any_Any-Rule,any,any,any,any,any,any,allow,false,true
+Any_Any-Rule,any,any,any,any,ssh,any,allow,false,true
+Any_Any-Rule,any,any,any,any,ftp,allow,false,true,true
