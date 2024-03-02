@@ -32,7 +32,7 @@
       ansible.builtin.set_fact:
         address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
 
-    - name: Add address objects to address group {{ name }}
+    - name: Add address objects to address group 
       paloaltonetworks.panos.panos_address_group:
         provider: "{{ device }}"
         name: test_group
