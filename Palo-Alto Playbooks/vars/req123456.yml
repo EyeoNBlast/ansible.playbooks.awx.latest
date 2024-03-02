@@ -50,3 +50,5 @@ policy_action: allow
 # log at session start and end log_start: true / log_end: true
 log_start: false
 log_end: true
+# Specifiy a Logging Profile
+log_setting: none
