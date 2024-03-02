@@ -16,7 +16,9 @@
     - name: Get all security rules
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
-        # gathered_filter options: "*" = all rules, 
+        # gathered_filter options: 
+        # "*" = all rules, rule_name, source/destination_ip, source/destination_zone, description, application,
+        # action (allow,deny,drop), disabled (true,false)
         gathered_filter: "rule_name contains Web"
         state: gathered
       register: sec_rules
