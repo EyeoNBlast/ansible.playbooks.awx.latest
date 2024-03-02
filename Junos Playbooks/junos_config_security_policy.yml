@@ -9,25 +9,25 @@
         config:
           from_zones:
             - name: trust
-            to_zones:
-              - name: untrust
-              policies:
-                - description:
-                - match:
-                    application:
-                      names:
-                        - junos-http
-                        - junos-https
-                    destination_address:
-                      address:
-                        - address1
-                        - address2
-                    source_address:
-                      address:
-                        - address3
-                        - address4
-                  name: 111
-                  then:
-                    count: true
-                    deny: false
-                    log: session-close
+                to_zones:
+                  - name: untrust
+                      policies:
+                        - description:
+                        - match:
+                            application:
+                              names:
+                                - junos-http
+                                - junos-https
+                            destination_address:
+                              address:
+                                - address1
+                                - address2
+                            source_address:
+                              address:
+                                - address3
+                                - address4
+                          name: 111
+                          then:
+                            count: true
+                            deny: false
+                            log: session-close
