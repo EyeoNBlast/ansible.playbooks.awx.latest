@@ -25,7 +25,7 @@
       paloaltonetworks.panos.panos_address_object:
         provider: "{{ device }}"
         name: "{{ item.value.hostname }}"
-        value: "{{ item.value.ip }}"
+        value: "{{ item.value.ip_address }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
     - name: Create a list of the address objects
