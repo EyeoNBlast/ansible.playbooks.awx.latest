@@ -25,8 +25,8 @@
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
         name: "{{ item.value.name }}"
-        protocol: "{{ item.value.dest_protocol }}"
-        destination_port: "{{ item.value.destination_port }}"
+        protocol: "{{ item.value.protocol }}"
+        destination_port: "{{ item.value.detination_port }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
     - name: Create a list of the service objects
