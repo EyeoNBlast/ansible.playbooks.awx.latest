@@ -32,3 +32,9 @@
     - name: Create a list of the service objects
       ansible.builtin.set_fact:
         address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
+
+    - name: Add address objects to service group
+      paloaltonetworks.panos.panos_service_group:
+        provider: "{{ device }}"
+        name: test_group
+        value: "{{ address_objects_list }}"
