@@ -37,4 +37,4 @@
       paloaltonetworks.panos.panos_service_group:
         provider: "{{ device }}"
         name: test_group
-        static_value: "{{ address_objects_list }}"
+        device_group: "{{ address_objects_list }}"
