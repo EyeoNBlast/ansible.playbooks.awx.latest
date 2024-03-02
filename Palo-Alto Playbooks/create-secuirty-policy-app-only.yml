@@ -56,7 +56,7 @@
         destination_zone: ["{{ policy_destination_zone }}"]
         destination_ip: ["{{ destination_address }}"]
         application: ["{{ application }}"]
-        service: ["{{ service_name }}"]
+        service: ['"{{ service_name }}"']
         action: "{{ policy_action }}"
         log_start: "{{ log_start }}"
         log_end: "{{ log_end }}"

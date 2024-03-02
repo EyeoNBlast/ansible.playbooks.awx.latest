@@ -23,7 +23,7 @@ destination_description: Web Server 1
 # If needing multiple applications seperate with , e.g ssh, ssl
 # If using a custom port only set application: any
 # If a custom service isnt required un playbook create-security-policy-app.yml
-application: 'ssh' 'ftp'
+application: 'ssh', 'ftp'
 
 ##################################################
 # Service Information
