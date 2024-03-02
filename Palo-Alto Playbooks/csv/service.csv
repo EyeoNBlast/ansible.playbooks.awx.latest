@@ -1,4 +1,4 @@
-name,protocol,destination_port
-TCP-21,tcp,21
-TCP-69,tcp,69
-TCP-8080,tcp,8080
+name,protocol,destination_port,description,tag
+TCP-21,tcp,21,ftp,FTP
+TCP-69,tcp,69,tftp,TFTP
+TCP-8080,tcp,8080,Web,Web
