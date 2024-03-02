@@ -25,7 +25,7 @@
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
         name: "{{ item.value.service_name }}"
-        value: "{{ item.value.dest_pro}}"
+        value: "{{ item.value.dest_pro }}"
         value: "{{ item.value.dest_port }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
