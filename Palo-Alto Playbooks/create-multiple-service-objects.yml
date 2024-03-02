@@ -26,7 +26,7 @@
         provider: "{{ device }}"
         name: "{{ item.value.name }}"
         protocol: "{{ item.value.protocol }}"
-        destination_port: "{{ item.value.detination_port }}"
+        destination_port: "{{ item.value.destination_port }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
     - name: Create a list of the service objects
