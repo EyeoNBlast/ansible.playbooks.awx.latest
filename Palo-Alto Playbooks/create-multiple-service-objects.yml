@@ -1,5 +1,5 @@
 ---
-- name: Create Address Object from a CSV Source File
+- name: Create Service Objects from a CSV Source File
   hosts: "firewall"
   connection: local
 
@@ -9,7 +9,7 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-    csv_filename: "service.csv"
+    csv_filename: "csv/service.csv"
 
   collections:
     - paloaltonetworks.panos
