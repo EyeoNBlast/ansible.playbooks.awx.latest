@@ -18,15 +18,15 @@
     - name: Read CSV file
       ansible.builtin.read_csv:
         path: "{{ csv_filename }}"
-        key: service_name
+        key: name
       register: csv_data
 
     - name: Create address objects
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
-        name: "{{ item.value.service_name }}"
-        value: "{{ item.value.dest_pro }}"
-        value: "{{ item.value.dest_port }}"
+        name: "{{ item.value.name }}"
+        protocol: "{{ item.value.dest_pro }}"
+        destination_port: "{{ item.value.dest_port }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
     - name: Create a list of the service objects
