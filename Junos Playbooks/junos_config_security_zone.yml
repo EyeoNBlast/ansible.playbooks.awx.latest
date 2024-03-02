@@ -1,11 +1,35 @@
 ---
-- name: Configure Security Zone on an Interface
+- name: Configure Security Policy On a Firewall
   hosts: juniper1
   vars:
     - 
 
   tasks:
 
-    - name: Configure a Secuirty Zone on a Firewall
+    - name: Configure a Secuirty Policy on a Firewall
       junipernetworks.junos.junos_security_zones:
         config:
+          from_zones:
+            - name: trust
+            to_zones:
+              - name: untrust
+              policies:
+                - description:
+                - match:
+                    application:
+                      names:
+                        - junos-http
+                        - junos-https
+                    destination_address:
+                      address:
+                        - 
+                        -
+                    source_address:
+                      address:
+                        -
+                        -
+                  name: 
+                  then:
+                    count: true
+                    deny: false
+                    log: session-close
