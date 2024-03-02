@@ -22,7 +22,7 @@ destination_description: Web Server 1
 # ssl, web-browsing, ssh, tftp, ftp, dhcp, dns, ping
 # If needing single application ['ssh']
 # If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
-# If using a custom port only set application: any
+# If using a custom port only set application: ['any']
 # If a custom service isnt required un playbook create-security-policy-app.yml
 application: ['ssh', 'ftp']
 
@@ -34,7 +34,7 @@ application: ['ssh', 'ftp']
 
 # If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
 # If only an application is required set service_name: any
-service_name: test_group
+service_name: any
 #service_protocol: tcp
 #service_destination_port: 22
 #service_description: SSH
