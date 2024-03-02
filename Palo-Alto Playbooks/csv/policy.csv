@@ -1,2 +1,2 @@
 rule_name;source_zone;source_ip;destination_zone;destination_ip;application;service;action;log_start;log_end
-Any_Any-SSH-FTP;any;any;any;any;ssh, ftp;any;allow;FALSE;TRUE
+Any_Any-SSH-FTP;any;any;any;any;ssh,ftp;any;allow;FALSE;TRUE
