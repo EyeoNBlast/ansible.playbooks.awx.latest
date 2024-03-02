@@ -20,7 +20,8 @@ destination_description: Web Server 1
 
 # Application Information PA App ID
 # ssl, web-browsing, ssh, tftp, ftp, dhcp, dns, ping
-# If needing multiple applications seperate with , e.g ssh, ssl
+# If needing single application ['ssh']
+# If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
 # If using a custom port only set application: any
 # If a custom service isnt required un playbook create-security-policy-app.yml
 application: ['ssh', 'ftp']
