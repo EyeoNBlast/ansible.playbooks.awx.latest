@@ -1,4 +1,4 @@
-hostnamename,ip_address
+hostname,ip_address
 webservertest1,192.168.10.10
 webservertest2,192.168.10.11
 webservertest3,192.168.10.12
