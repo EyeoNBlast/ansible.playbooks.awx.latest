@@ -29,12 +29,12 @@
         value: "{{ item.value.dest_port }}"
       with_items: "{{ csv_data.dict | dict2items }}"
 
-    - name: Create a list of the address objects
+    - name: Create a list of the service objects
       ansible.builtin.set_fact:
         address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
 
-    - name: Add address objects to address group
-      paloaltonetworks.panos.panos_address_group:
+    - name: Add address objects to service group
+      paloaltonetworks.panos.panos_service_group:
         provider: "{{ device }}"
         name: test_group
         static_value: "{{ address_objects_list }}"
