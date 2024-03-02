@@ -1,5 +1,5 @@
 ---
-- name: Create Service Objects from a CSV Source File
+- name: Create Address Object from a CSV Source File
   hosts: "firewall"
   connection: local
 
@@ -14,22 +14,20 @@
   collections:
     - paloaltonetworks.panos
 
-    tasks:
-      - name: Read CSV file
-        ansible.builtin.read_csv:
-          path: "{{ csv_filename }}"
-          key: hostname
-        register: csv_data
+  tasks:
+    - name: Read CSV file
+      ansible.builtin.read_csv:
+        path: "{{ csv_filename }}"
+        key: hostname
+      register: csv_data
 
-      - name: Create address objects
-        paloaltonetworks.panos.panos_address_object:
-          provider: "{{ device }}"
-          name: "{{ item.value.name }}"
-          #address_type: "{{item.value.address_type }}"
-          value: "{{ item.value.ip_address }}"
-          #description: "{{ item.value.description }}"
-          #tag: "{{ item.value.tag }}"
+    - name: Create address objects
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ item.value.hostname }}"
+        value: "{{ item.value.ip }}"
+      with_items: "{{ csv_data.dict | dict2items }}"
 
-      - name: Create a list of the address objects
-        ansible.builtin.set_fact:
-          address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
+    - name: Create a list of the address objects
+      ansible.builtin.set_fact:
+        address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
