@@ -17,7 +17,7 @@
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
         # gathered_filter options: "*" = all rules, 
-        gathered_filter: "name contains Web"
+        gathered_filter: "rule_name contains Web"
         state: gathered
       register: sec_rules
 
