@@ -10,33 +10,25 @@
       junipernetworks.junos.junos_security_policies:
         config:
           from_zones:
-            - name: one
+            name: trust
               to_zones:
-                - name: two
-                  policies:
-                    - description: test_policy
-                    - match:
-                        application:
-                          names:
-                            - junos-http
-                            - junos-https
-                        destination_address:
-                          address:
-                            - address1
-                            - address2
-                        from_zone:
-                          names:
-                            - trust
-                        source_address:
-                          address:
-                            - address3
-                            - address4
-                        to_zone:
-                          names:
-                            - untrust
-                      name: 111
-                      then:
-                        count: true
-                        deny: false
-                        log: session-close
+                name: untrust
+                policies:
+                  description:
+                  match:
+                    application:
+                      names: junos-http
+                    destination_address:
+                      addresses: address1
+                    from_zone:
+                      names: trust
+                    source_address:
+                      names: address2
+                    to_zone:
+                      names: untrust
+                  name: test_http
+                  then:
+                    count: true
+                    deny: false
+                    log: session_init
         state: merged
