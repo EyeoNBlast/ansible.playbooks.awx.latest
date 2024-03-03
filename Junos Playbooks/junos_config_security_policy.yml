@@ -10,12 +10,12 @@
       junipernetworks.junos.junos_security_policies:
         config:
           from_zones:
-            name: one
+            - name: one
               to_zones:
-                name: two
+                - name: two
                   policies:
-                    description: test_policy
-                    match:
+                    - description: test_policy
+                    - match:
                         application:
                           names:
                             - junos-http
