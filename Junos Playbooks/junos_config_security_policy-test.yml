@@ -43,3 +43,70 @@
                         count: true
                         deny: true
                         log: session-close
+                    - match:
+                        application:
+                          any: true
+                        destination_address:
+                          any_ipv6: true
+                        source_address:
+                          addresses:
+                            - address1
+                      name: test_policy_2
+                      then:
+                        reject:
+                          enable: true
+                          profile: test_dyn_app
+                          ssl_proxy:
+                            enable: true
+                            profile_name: SECURITY-SSL-PROXY
+                - name: three
+                  policies:
+                    - match:
+                        application:
+                          any: true
+                        destination_address:
+                          addresses:
+                            - address2
+                        source_address:
+                          addresses:
+                            - address3
+                      name: test_policy_3
+                      then:
+                        permit:
+                          application_services:
+                            application_traffic_control_rule_set: test_traffic_control
+                            gprs_gtp_profile: gtp1
+                            icap_redirect: test_icap
+                            reverse_redirect_wx: 'True'
+                            uac_policy:
+                              enable: true
+                          firewall_authentication:
+                            push_to_identity_management: true
+                            web_authentication:
+                              - FWClient1
+                          tcp_options:
+                            initial_tcp_mss: 64
+                            window_scale: true
+      global:
+        policies:
+          - match:
+              application:
+                any: true
+              destination_address:
+                any_ipv6: true
+              source_address:
+                any_ipv6: true
+            name: test_glob_1
+            then:
+              deny: true
+          - match:
+              application:
+                any: true
+              destination_address:
+                any_ipv6: true
+              source_address:
+                any_ipv6: true
+            name: test_glob_2
+            then:
+              deny: true
+    state: merged
