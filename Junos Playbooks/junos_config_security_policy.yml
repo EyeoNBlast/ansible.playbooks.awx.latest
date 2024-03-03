@@ -10,9 +10,9 @@
       junipernetworks.junos.junos_security_policies:
         config:
           from_zones:
-            - name: trust
+            - name: one
               to_zones:
-                - name: untrust
+                - name: two
                   policies:
                     - description:
                     - match:
@@ -24,10 +24,16 @@
                           address:
                             - address1
                             - address2
+                        from_zone:
+                          names:
+                            - trust
                         source_address:
                           address:
                             - address3
                             - address4
+                        to_zone:
+                          names:
+                            - untrust
                       name: 111
                       then:
                         count: true
