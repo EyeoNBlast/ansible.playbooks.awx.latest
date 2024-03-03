@@ -1,0 +1,34 @@
+---
+- name: Configure Security Policy On a Firewall
+  hosts: juniper1
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Configure a Secuirty Policy on a Firewall
+      junipernetworks.junos.junos_security_policies:
+        config:
+          global:
+            policies:
+              - match:
+                  application:
+                    any: true
+                  destination_address:
+                    any_ipv6: true
+                  source_address:
+                    any_ipv6: true
+                name: test_glob_1
+                then:
+                  deny: true
+              - match:
+                  application:
+                    any: true
+                  destination_address:
+                    any_ipv6: true
+                  source_address:
+                    any_ipv6: true
+                name: test_glob_2
+                then:
+                  deny: true
+        state: merged
