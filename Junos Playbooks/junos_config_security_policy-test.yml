@@ -1,0 +1,45 @@
+---
+- name: Configure Security Policy On a Firewall
+  hosts: juniper1
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Configure a Secuirty Policy on a Firewall
+      junipernetworks.junos.junos_security_policies:
+        config:
+          from_zones:
+            - name: one
+              to_zones:
+                - name: two
+                  policies:
+                    - match:
+                        application:
+                          names:
+                            - junos-dhcp-relay
+                            - junos-finger
+                        destination_address:
+                          addresses:
+                            - address1
+                            - address2
+                        destination_address_excluded: true
+                        dynamic_application:
+                          names:
+                            - any
+                        source_address:
+                          addresses:
+                            - address3
+                            - address4
+                        source_address_excluded: true
+                        source_end_user_profile: test_end_user_profile
+                        source_identity:
+                          unknown_user: true
+                        url_category:
+                          names:
+                            - Enhanced_Web_Chat
+                      name: test_policy_1
+                      then:
+                        count: true
+                        deny: true
+                        log: session-close
