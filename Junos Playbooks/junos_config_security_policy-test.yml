@@ -109,4 +109,4 @@
             name: test_glob_2
             then:
               deny: true
-    state: merged
+      state: merged
