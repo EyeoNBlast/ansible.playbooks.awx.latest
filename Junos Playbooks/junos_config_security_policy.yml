@@ -9,25 +9,27 @@
     - name: Configure a Secuirty Policy on a Firewall
       junipernetworks.junos.junos_security_policies:
         config:
-          polices:
-            - description: test policy
-            - match:
-                application:
-                  names:
-                    - junos-http
-                destination_address:
-                  addresses: address1
-                from_zone:
-                  names:
-                    - trust
-                source_address:
-                  addresses: address2
-                to_zone:
-                  names:
-                    - untrust
-              name: test_policy
-              then:
-                count: true
-                deny: false
-                log: session_close
-                
+          from_zones:
+            - name: trust
+              to_zones:
+                - name: untrust
+                  policies:
+                    - description:
+                    - match:
+                        application:
+                          names:
+                            - junos-http
+                            - junos-https
+                        destination_address:
+                          address:
+                            - address1
+                            - address2
+                        source_address:
+                          address:
+                            - address3
+                            - address4
+                      name: 111
+                      then:
+                        count: true
+                        deny: false
+                        log: session-close
