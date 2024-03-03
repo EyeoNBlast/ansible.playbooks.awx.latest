@@ -39,3 +39,4 @@
                         count: true
                         deny: false
                         log: session-close
+        state: merged

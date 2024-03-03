@@ -87,26 +87,4 @@
                           tcp_options:
                             initial_tcp_mss: 64
                             window_scale: true
-      global:
-        policies:
-          - match:
-              application:
-                any: true
-              destination_address:
-                any_ipv6: true
-              source_address:
-                any_ipv6: true
-            name: test_glob_1
-            then:
-              deny: true
-          - match:
-              application:
-                any: true
-              destination_address:
-                any_ipv6: true
-              source_address:
-                any_ipv6: true
-            name: test_glob_2
-            then:
-              deny: true
-      state: merged
+        state: merged
