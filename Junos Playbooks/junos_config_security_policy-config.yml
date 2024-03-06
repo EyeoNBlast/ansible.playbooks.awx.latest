@@ -1,8 +1,6 @@
 ---
 - name: Configure Security Policy On a Firewall
   hosts: juniper1
-  connection: local
-  gather_facts: no
 
   vars:
     juniper1:
@@ -18,7 +16,7 @@
           - set security policies from-zone trust to-zone untrust policy 112 match application junos-https
           - set security policies from-zone trust to-zone untrust policy 112 match then permit
         comment: update config
-        
+
     - name: confirm a previous commit
       junipernetworks.junos.junos_config:
         confirm_commit: true
