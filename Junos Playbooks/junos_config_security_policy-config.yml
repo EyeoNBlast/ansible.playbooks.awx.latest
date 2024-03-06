@@ -10,7 +10,7 @@
       password: "{{ password }}"
 
   tasks:
-    - name: name: load configure lines into device
+    - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
           - set security policies from-zone trust to-zone untrust policy 112 match source-address address1 destination-address address2 application junos-https
