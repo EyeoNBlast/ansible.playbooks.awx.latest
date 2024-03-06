@@ -1,0 +1,17 @@
+---
+- name: Configure Security Policy On a Firewall
+  hosts: juniper1
+  connection: local
+  gather_facts: no
+
+  vars:
+    juniper1:
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  tasks:
+    - name: name: load configure lines into device
+      junipernetworks.junos.junos_config:
+        lines:
+          - set security policies from-zone trust to-zone untrust policy 112 match source-address address1 destination-address address2 application junos-https
+          - set security policies from-zone trust to-zone untrust policy 112 match then permit
