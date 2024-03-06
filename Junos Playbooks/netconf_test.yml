@@ -1,0 +1,15 @@
+---
+- name: Firewalls - NETCONF Configurations
+  hosts: junos_devices
+  connection: ansible.netcommon.netconf
+  gather_facts: false #--Must be explicitly disabled, attempting to gather facts via this method will fail
+  tasks:
+
+  - name: Firewalls - Collect Firewall Facts
+    junipernetworks.junos.junos_facts:
+      gather_subset: config
+    register: junos_facts
+
+  - name: Firewall - Output Firewall Hostname
+    debug:
+      var: junos_facts.ansible_facts.ansible_net_hostname
