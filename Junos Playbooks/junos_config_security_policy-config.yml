@@ -1,6 +1,7 @@
 ---
 - name: Configure Security Policy On a Firewall
   hosts: juniper1
+  connection: local
   gather_facts: no
 
   tasks:
