@@ -1,11 +1,7 @@
 ---
 - name: Configure Security Policy On a Firewall
   hosts: juniper1
-
-  vars:
-    juniper1:
-      username: "{{ username }}"
-      password: "{{ password }}"
+  gather_facts: no
 
   tasks:
     - name: load configure lines into device
