@@ -1,6 +1,6 @@
 ---
 - name: Configure Security Policy On a Firewall
-  hosts: juniper1
+  hosts: 192.168.4.42
 
   vars:
     juniper1:
