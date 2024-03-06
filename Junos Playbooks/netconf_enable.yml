@@ -1,0 +1,9 @@
+---
+- name: Firewall - Ensure NETCONF
+  hosts: junos_devices
+  connection: ansible.netcommon.network_cli #--This connection method needs to be explicitly defined
+  gather_facts: false #--Fact gathering must be explicitly disabled, attempting to gather facts will fail
+  tasks:
+
+  - name: Enable - JUNOS NETCONF
+    junipernetworks.junos.junos_netconf:
