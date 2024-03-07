@@ -14,14 +14,15 @@
               to_zones:
                 - name: trust
                   policies:
-                    - name: default-permit-all-1
+                    - name: dns-permit-all
                       match:
                         source_address:
                           any: true
                         destination_address:
                           any: true
                         application:
-                          names: junos-https 
+                          names: junos-dns
                       then:
-                        deny: false
+                        permit: true
+                        log: session_init
         state: merged
