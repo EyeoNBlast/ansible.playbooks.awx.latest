@@ -21,7 +21,7 @@
                         destination_address:
                           any: true
                         application:
-                          any: true
+                          names: ['junos-https']
                       then:
                         deny: false
         state: merged
