@@ -14,3 +14,4 @@
           - set security policies from-zone trust to-zone trust policy permit-dns then permit
         comment: update config
         update: merge
+        confirm_commit: true
