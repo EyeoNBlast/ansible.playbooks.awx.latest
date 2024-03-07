@@ -3,10 +3,15 @@
   hosts: juniper1
   gather_facts: no
 
+  vars:
+    ansible_connection: netconf
+
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
-          - set interfaces ge-0/0/1 unit 0 description "Test interface"
-          - set vlans vlan01 description "Test vlan"
+          - set security policies from-zone trust to-zone trust policy permit-dns match source-address any
+          - set security policies from-zone trust to-zone trust policy permit-dns match destination-address any
+          - set security policies from-zone trust to-zone trust policy permit-dns match application junos-dns
+          - set security policies from-zone trust to-zone trust policy permit-dns then permit
         comment: update config
