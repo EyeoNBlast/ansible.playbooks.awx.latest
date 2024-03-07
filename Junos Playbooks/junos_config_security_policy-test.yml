@@ -22,6 +22,8 @@
                           any: true
                         application:
                           any: true
+                  then:
+                    deny: false
                 - name: untrust
                   policies:
                     - name: default-permit
