@@ -10,8 +10,6 @@
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
-          - set security policies from-zone trust to-zone trust policy permit-dns match source-address any
-          - set security policies from-zone trust to-zone trust policy permit-dns match destination-address any
-          - set security policies from-zone trust to-zone trust policy permit-dns match application junos-dns
+          - set security policies from-zone trust to-zone trust policy permit-dns match source-address any match destination-address any match application junos-dns
           - set security policies from-zone trust to-zone trust policy permit-dns then permit
         comment: update config
