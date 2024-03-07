@@ -11,7 +11,7 @@
           from_zones:
             - name: trust
               to_zones:
-                - name: trust
+                - name: untrust
                   policies:
                     - name: default-permit
                       match:
@@ -20,7 +20,10 @@
                         destination_address:
                           any: true
                         application:
-                          any: true
+                          names:
+                            - junos-https
                       then:
                         deny: false
+                        log: session_init
         state: merged
+
