@@ -1,90 +1,55 @@
 ---
-- name: Configure Security Policy On a Firewall
+- name: Test junos security policies
   hosts: juniper1
-  connection: local
-  gather_facts: no
-
+  gather_facts: false
+  vars:
+    ansible_connection: netconf
+    
   tasks:
-
-    - name: Configure a Secuirty Policy on a Firewall
+    - name: Get junos security policies configuration
       junipernetworks.junos.junos_security_policies:
+        state: gathered
+      register: state
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: state
+
+
+    - name: Deploy security policies
+      juniper-networks.junos.junos_security_policies:
         config:
           from_zones:
-            - name: one
+            - name: trust
               to_zones:
-                - name: two
+                - name: trust
                   policies:
-                    - match:
-                        application:
-                          names:
-                            - junos-dhcp-relay
-                            - junos-finger
-                        destination_address:
-                          addresses:
-                            - address1
-                            - address2
-                        destination_address_excluded: true
-                        dynamic_application:
-                          names:
-                            - any
+                    - name: default-permit
+                      match:
                         source_address:
-                          addresses:
-                            - address3
-                            - address4
-                        source_address_excluded: true
-                        source_end_user_profile: test_end_user_profile
-                        source_identity:
-                          unknown_user: true
-                        url_category:
-                          names:
-                            - Enhanced_Web_Chat
-                      name: test_policy_1
-                      then:
-                        count: true
-                        deny: true
-                        log: session-close
-                    - match:
-                        application:
                           any: true
                         destination_address:
-                          any_ipv6: true
-                        source_address:
-                          addresses:
-                            - address1
-                      name: test_policy_2
-                      then:
-                        reject:
-                          enable: true
-                          profile: test_dyn_app
-                          ssl_proxy:
-                            enable: true
-                            profile_name: SECURITY-SSL-PROXY
-                - name: three
-                  policies:
-                    - match:
+                          any: true
                         application:
                           any: true
-                        destination_address:
-                          addresses:
-                            - address2
+                - name: untrust
+                  policies:
+                    - name: default-permit
+                      match:
                         source_address:
-                          addresses:
-                            - address3
-                      name: test_policy_3
-                      then:
-                        permit:
-                          application_services:
-                            application_traffic_control_rule_set: test_traffic_control
-                            gprs_gtp_profile: gtp1
-                            icap_redirect: test_icap
-                            reverse_redirect_wx: 'True'
-                            uac_policy:
-                              enable: true
-                          firewall_authentication:
-                            push_to_identity_management: true
-                            web_authentication:
-                              - FWClient1
-                          tcp_options:
-                            initial_tcp_mss: 64
-                            window_scale: true
+                          any: true
+                        destination_address:
+                          any: true
+                        application:
+                          any: true
         state: merged
+          
+    - name: Get junos security policies configuration
+      junipernetworks.junos.junos_security_policies:
+        state: gathered
+      register: state
+      
+      
+    - name: Results
+      ansible.builtin.debug:
+        var: state
