@@ -7,5 +7,5 @@
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
-          - set interfaces fxp0 unit 0 description "mgmt interface"
+          - set interfaces fxp0 unit 0 description mgmt_interface
         comment: update config
