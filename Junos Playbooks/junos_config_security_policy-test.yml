@@ -4,7 +4,6 @@
   gather_facts: false
   vars:
     ansible_connection: netconf
-    
   tasks:
     - name: Get junos security policies configuration
       junipernetworks.junos.junos_security_policies:
@@ -15,15 +14,9 @@
       ansible.builtin.debug:
         var: state
 
-- name: Test junos security policies
-  hosts: juniper1
-  gather_facts: false
-  vars:
-    ansible_connection: netconf
-    
-  tasks:
+
     - name: Deploy security policies
-      juniper-networks.junos.junos_security_policies:
+      junipernetworks.junos.junos_security_policies:
         config:
           from_zones:
             - name: trust
