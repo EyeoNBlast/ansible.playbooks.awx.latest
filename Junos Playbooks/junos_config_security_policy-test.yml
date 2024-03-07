@@ -4,17 +4,8 @@
   gather_facts: false
   vars:
     ansible_connection: netconf
+
   tasks:
-    - name: Get junos security policies configuration
-      junipernetworks.junos.junos_security_policies:
-        state: gathered
-      register: state
-
-    - name: Debug
-      ansible.builtin.debug:
-        var: state
-
-
     - name: Deploy security policies
       junipernetworks.junos.junos_security_policies:
         config:
