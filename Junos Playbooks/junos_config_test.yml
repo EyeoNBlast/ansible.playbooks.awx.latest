@@ -1,5 +1,5 @@
 ---
-- name: Configure Security Policy On a Firewall
+- name: Apply Config to an Junos Device
   hosts: juniper1
   gather_facts: no
 
@@ -7,7 +7,7 @@
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
-          - set security policies from-zone trust to-zone untrust policy 112 match source-address address1
+          - set interfaces fxp0 unit 0 description "mgmt interface"
         comment: update config
 
     - name: confirm a previous commit
