@@ -23,6 +23,8 @@
                         application:
                           names: junos-dns
                       then:
-                        permit: true
                         log: session_init
+                        permit:
+                          
+                        
         state: merged
