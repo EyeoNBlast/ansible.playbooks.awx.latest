@@ -10,6 +10,7 @@
         check_commit: true
         confirm_commit: true
         lines:
-          - set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-https
-          - set security policies from-zone trust to-zone trust policy permit-dns then permit
+          #- set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-https
+          #- set security policies from-zone trust to-zone trust policy permit-dns then permit
+           - set interfaces ge-0/0/0 disable
         update: merge
