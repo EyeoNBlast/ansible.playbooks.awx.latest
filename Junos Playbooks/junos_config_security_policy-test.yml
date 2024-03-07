@@ -42,13 +42,3 @@
                         application:
                           any: true
         state: merged
-          
-    - name: Get junos security policies configuration
-      junipernetworks.junos.junos_security_policies:
-        state: gathered
-      register: state
-      
-      
-    - name: Results
-      ansible.builtin.debug:
-        var: state
