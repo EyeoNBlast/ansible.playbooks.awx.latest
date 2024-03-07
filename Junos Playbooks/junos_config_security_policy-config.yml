@@ -8,9 +8,6 @@
       junipernetworks.junos.junos_config:
         lines:
           - set security policies from-zone trust to-zone untrust policy 112 match source-address address1
-          - set security policies from-zone trust to-zone untrust policy 112 match destination-address address2 
-          - set security policies from-zone trust to-zone untrust policy 112 match application junos-https
-          - set security policies from-zone trust to-zone untrust policy 112 match then permit
         comment: update config
 
     - name: confirm a previous commit
