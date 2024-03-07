@@ -26,8 +26,5 @@
                         log: session_init
                         permit:
                           application_services:
-                            idp: false
-                        
-
-                        
+                            idp: false                                  
         state: merged
