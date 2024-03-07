@@ -11,24 +11,15 @@
         config:
           global:
             policies:
-              - match:
+              - description: test update
+                match:
                   application:
                     any: true
                   destination_address:
                     any_ipv6: true
                   source_address:
-                    any_ipv6: true
-                name: test_glob_1
-                then:
-                  deny: true
-              - match:
-                  application:
                     any: true
-                  destination_address:
-                    any_ipv6: true
-                  source_address:
-                    any_ipv6: true
-                name: test_glob_2
+                name: test_glob_3
                 then:
                   deny: true
-        state: merged
+        state: replaced
