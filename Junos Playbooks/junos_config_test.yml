@@ -3,9 +3,6 @@
   hosts: juniper1
   gather_facts: no
 
-  vars:
-    ansible_connection: netconf
-
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
