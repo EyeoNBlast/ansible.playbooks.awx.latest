@@ -22,6 +22,6 @@
                           any: true
                         application:
                           any: true
-                  then:
-                    deny: false
+                      then:
+                        deny: false
         state: merged
