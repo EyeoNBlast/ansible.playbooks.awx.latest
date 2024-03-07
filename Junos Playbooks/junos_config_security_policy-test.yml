@@ -24,16 +24,4 @@
                           any: true
                   then:
                     deny: false
-                - name: untrust
-                  policies:
-                    - name: default-permit
-                      match:
-                        source_address:
-                          any: true
-                        destination_address:
-                          any: true
-                        application:
-                          any: true
-                  then: 
-                    deny: false
         state: merged
