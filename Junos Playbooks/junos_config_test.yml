@@ -9,7 +9,3 @@
         lines:
           - set interfaces fxp0 unit 0 description "mgmt interface"
         comment: update config
-
-    - name: confirm a previous commit
-      junipernetworks.junos.junos_config:
-        confirm_commit: true
