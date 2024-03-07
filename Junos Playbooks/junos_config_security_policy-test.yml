@@ -3,8 +3,6 @@
   hosts: juniper1
   connection: local
   gather_facts: false
-  vars:
-    ansible_connection: netconf
 
   tasks:
     - name: Deploy security policies
