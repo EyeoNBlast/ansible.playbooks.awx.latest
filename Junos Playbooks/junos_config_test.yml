@@ -6,9 +6,9 @@
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
+        check_commit: true
+        confirm_commit: true
         lines:
           - set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-dns
           - set security policies from-zone trust to-zone trust policy permit-dns then permit
-        comment: update config
         update: merge
-        confirm_commit: true
