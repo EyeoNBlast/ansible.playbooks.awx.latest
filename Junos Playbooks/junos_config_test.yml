@@ -1,14 +1,11 @@
 ---
 - name: Apply Config to an Junos Device
   hosts: juniper1
-  connection: local
   gather_facts: no
 
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
-        check_commit: true
-        confirm_commit: true
         lines:
           #- set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-https
           #- set security policies from-zone trust to-zone trust policy permit-dns then permit
