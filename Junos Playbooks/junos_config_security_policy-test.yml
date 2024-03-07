@@ -15,7 +15,7 @@
       ansible.builtin.debug:
         var: state
 
-
+  tasks:
     - name: Deploy security policies
       juniper-networks.junos.junos_security_policies:
         config:
