@@ -1,6 +1,7 @@
 ---
 - name: Test junos security policies
   hosts: juniper1
+  connection: local
   gather_facts: false
   vars:
     ansible_connection: netconf
