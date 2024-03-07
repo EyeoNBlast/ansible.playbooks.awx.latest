@@ -1,6 +1,7 @@
 ---
 - name: Apply Config to an Junos Device
   hosts: juniper1
+  connection: local
   gather_facts: no
 
   tasks:
