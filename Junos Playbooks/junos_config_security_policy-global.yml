@@ -22,4 +22,4 @@
                 name: test_glob_3
                 then:
                   deny: true
-        state: replaced
+        state: merged
