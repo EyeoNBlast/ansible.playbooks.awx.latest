@@ -1,8 +1,9 @@
 ---
 - name: Test junos security policies
   hosts: juniper1
-  connection: local
   gather_facts: false
+  vars:
+    ansible_connection: netconf
 
   tasks:
     - name: Deploy security policies
@@ -11,9 +12,9 @@
           from_zones:
             - name: trust
               to_zones:
-                - name: untrust
+                - name: trust
                   policies:
-                    - name: default-permit-any-all
+                    - name: default-permit-all
                       match:
                         source_address:
                           any: true
@@ -21,8 +22,6 @@
                           any: true
                         application:
                           any: true
-                      then:
-                        deny: false
-                        log: session-init
+                  then:
+                    deny: false
         state: merged
-
