@@ -13,16 +13,16 @@
               to_zones:
                 - name: untrust
                   policies:
-                    - name: default-block-https
+                    - name: default-permit-any-all
                       match:
                         source_address:
                           any: true
                         destination_address:
                           any: true
                         application:
-                          names: junos-https
+                          any: true
                       then:
                         deny: false
-                        log: session_init
+                        log: session-init
         state: merged
 
