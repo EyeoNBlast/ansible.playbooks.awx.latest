@@ -6,6 +6,6 @@
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
-      src: "files/config.txt"
-      src_format: set
-      update: merge
+        src: "files/config.txt"
+        src_format: set
+        update: merge
