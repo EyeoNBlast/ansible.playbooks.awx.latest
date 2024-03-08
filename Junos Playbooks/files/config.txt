@@ -1,2 +1,22 @@
-set security policies from-zone trust to-zone trust policy permit-https match source-address any destination-address any application junos-https
-set security policies from-zone trust to-zone trust policy permit-https then permit
+delete security policies from-zone trust to-zone trust policy default-permit match source-address any
+delete security policies from-zone trust to-zone trust policy default-permit match destination-address any
+delete security policies from-zone trust to-zone trust policy default-permit match application any
+delete security policies from-zone trust to-zone trust policy default-permit then deny
+delete security policies from-zone trust to-zone trust policy default-permit-all match source-address any
+delete security policies from-zone trust to-zone trust policy default-permit-all match destination-address any
+delete security policies from-zone trust to-zone trust policy default-permit-all match application any
+delete security policies from-zone trust to-zone trust policy default-permit-all then deny
+delete security policies from-zone trust to-zone trust policy permit-dns match source-address any
+delete security policies from-zone trust to-zone trust policy permit-dns match destination-address any
+delete security policies from-zone trust to-zone trust policy permit-dns match application junos-https
+delete security policies from-zone trust to-zone trust policy permit-dns then permit
+delete security policies from-zone trust to-zone trust policy permit-https match source-address any
+delete security policies from-zone trust to-zone trust policy permit-https match destination-address any
+delete security policies from-zone trust to-zone trust policy permit-https match application junos-https
+delete security policies from-zone trust to-zone trust policy permit-https then permit
+delete security policies from-zone trust to-zone untrust policy default-permit match source-address any
+delete security policies from-zone trust to-zone untrust policy default-permit match destination-address any
+delete security policies from-zone trust to-zone untrust policy default-permit match application any
+delete security policies from-zone trust to-zone untrust policy default-permit then permit
+
+delete interfaces ge-0/0/0 disable
