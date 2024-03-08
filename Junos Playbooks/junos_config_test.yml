@@ -7,8 +7,8 @@
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
         lines:
-          #- set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-https
-          #- set security policies from-zone trust to-zone trust policy permit-dns then permit
-           - set interfaces ge-0/0/0 disable
+          - set security policies from-zone trust to-zone trust policy permit-dns match source-address any destination-address any application junos-https
+          - set security policies from-zone trust to-zone trust policy permit-dns then permit
+          #- set interfaces ge-0/0/0 disable
         #replace: false
         update: replace
