@@ -2,4 +2,3 @@
 ansible_host: 192.168.4.49
 ansible_connection: ansible.netcommon.netconf
 ansible_network_os: junipernetworks.junos.junos
-ansible_user: root
