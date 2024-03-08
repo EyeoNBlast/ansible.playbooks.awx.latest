@@ -1,0 +1,3 @@
+##
+set security policies from-zone trust to-zone trust policy permit-https match source-address any destination-address any application junos-https
+set security policies from-zone trust to-zone trust policy permit-https then permit

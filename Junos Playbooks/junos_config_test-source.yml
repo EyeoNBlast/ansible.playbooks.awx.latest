@@ -1,0 +1,11 @@
+---
+- name: Apply Config to an Junos Device
+  hosts: juniper1
+  gather_facts: no
+
+  tasks:
+    - name: load configure lines into device
+      junipernetworks.junos.junos_config:
+      src: "files/config.txt"
+      src_format: set
+      update: merge
