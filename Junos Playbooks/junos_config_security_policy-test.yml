@@ -21,7 +21,7 @@
                         destination_address:
                           any: true
                         application:
-                          names: junos-dns
+                          names: junos-dns-tcp
                       then:
                         log: session_init
                         permit:
