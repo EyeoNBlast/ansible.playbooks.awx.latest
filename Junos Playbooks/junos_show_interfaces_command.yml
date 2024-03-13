@@ -1,7 +1,7 @@
 ---
 - name: Run Show Interfaces Command
   hosts: juniper1
-  gather_facts: False
+  gather_facts: no
 
   tasks:
 

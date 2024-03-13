@@ -1,6 +1,7 @@
 ---
 - name: This Playbook allows you to run a command using the cmd var
   hosts: juniper1
+  gather_facts: false
   vars:
     command: "{{ cmd }}"
 

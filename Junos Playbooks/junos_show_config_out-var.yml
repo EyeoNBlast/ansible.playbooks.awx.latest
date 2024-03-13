@@ -1,6 +1,8 @@
 ---
 - name: Configuration of the Firewall
   hosts: juniper1
+  gather_facts: no
+
   vars:
     - output: "{{ output_type }}" ## Output Types are json, xml and set
 
