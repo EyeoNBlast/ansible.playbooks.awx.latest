@@ -1,0 +1,14 @@
+---
+- name: Apply Config to an Junos Device
+  hosts: juniper1
+  gather_facts: no
+
+  var:
+    filepath: "{{ filepath }}"
+
+  tasks:
+    - name: load configure lines into device
+      junipernetworks.junos.junos_config:
+        src: "{{ filepath }}"
+        src_format: set
+        update: merge
