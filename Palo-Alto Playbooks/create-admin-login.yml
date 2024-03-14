@@ -1,5 +1,5 @@
 ---
-- name: Create VR and Zones
+- name: Create Super User
   hosts: "firewall"
   connection: local
   gather_facts: no
@@ -14,7 +14,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Virtual Router
+    - name: Create new Super User
       paloaltonetworks.panos.panos_admin:
         admin_username: ansible
         admin_password: PaloAlto1!
