@@ -1,0 +1,22 @@
+---
+- name: Create VR and Zones
+  hosts: "firewall"
+  connection: local
+  gather_facts: no
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Virtual Router
+      paloaltonetworks.panos.panos_admin:
+        admin_username: ansible
+        admin_password: PaloAlto1!
+        superuser: true
+        
