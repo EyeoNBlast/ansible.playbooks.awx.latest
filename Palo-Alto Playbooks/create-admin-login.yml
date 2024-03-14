@@ -15,7 +15,8 @@
 
   tasks:
     - name: Create new Super User
-      paloaltonetworks.panos.panos_admin:
+      paloaltonetworks.panos.panos_administrator:
+        provider: "{{ device }}"
         admin_username: ansible
         admin_password: PaloAlto1!
         superuser: true
