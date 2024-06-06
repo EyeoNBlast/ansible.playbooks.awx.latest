@@ -1,6 +1,6 @@
 ---
 - name: Run Show Interfaces Command
-  hosts: juniper1
+  hosts: azure-vsrx
   gather_facts: no
 
   tasks:
