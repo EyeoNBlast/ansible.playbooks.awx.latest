@@ -1,7 +1,6 @@
 ---
 - name: This will set a Junos device hostname
-  host: azure-vsrx
-  gather_facts: no
+  hosts: azure-vsrx
 
   task: 
 
