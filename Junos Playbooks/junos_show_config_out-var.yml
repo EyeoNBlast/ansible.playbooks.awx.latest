@@ -1,6 +1,6 @@
 ---
 - name: Configuration of the Firewall
-  hosts: azure_vsrx
+  hosts: azure-vsrx
   gather_facts: no
 
   vars:
