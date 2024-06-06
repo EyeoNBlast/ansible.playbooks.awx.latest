@@ -1,6 +1,6 @@
 ---
 - name: Configuration of the Firewall
-  hosts: juniper1
+  hosts: azure_vsrx
   gather_facts: no
 
   vars:
