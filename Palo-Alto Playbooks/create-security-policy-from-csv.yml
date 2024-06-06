@@ -9,7 +9,7 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-    csv_filename: "csv/policy.csv"
+    csv_filename: "csv/REQ50402301.csv"
 
   collections:
     - paloaltonetworks.panos

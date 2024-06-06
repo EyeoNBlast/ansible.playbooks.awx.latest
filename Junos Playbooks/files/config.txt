@@ -22,3 +22,6 @@ set security policies from-zone trust to-zone untrust policy permit-https-out ma
 set security policies from-zone trust to-zone untrust policy permit-https-out then permit
 set security policies from-zone trust to-zone untrust policy permit-https-out then log session-init
 set security policies from-zone trust to-zone untrust policy permit-https-out then log session-close
+
+# Anu
+

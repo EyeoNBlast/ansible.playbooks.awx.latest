@@ -3,3 +3,4 @@ Any_Any-SSH-FTP;any;any;any;any;ssh,ftp;any;allow;FALSE;TRUE
 Any_Any-TFTP;any;any;any;any;tftp;any;allow;FALSE;TRUE
 Any_Any-SSL;any;any;any;any;ssl;any;allow;FALSE;TRUE
 Any_Any-Web;any;any;any;any;web-browsing;any;deny;TRUE;FALSE
+WebServer2-to-WebServer1;dmz1;10.10.10.10;dmz2;10.20.10.10;ms-rdp;any;deny;FALSE;TRUE
