@@ -1,12 +1,12 @@
 ---
 - name: This will set a Junos device hostname
-  host: juniper1
+  host: azure-vsrx
 
   task: 
 
   - name: Set Junos device hostname to Blah
     junipernetworks.junos.junos_hostname:
       config:
-        hostname: vSRX-1_Office_2
+        hostname: Azure-vSRX-#1
       state: merged
   
