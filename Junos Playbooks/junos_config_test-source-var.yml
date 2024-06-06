@@ -1,6 +1,6 @@
 ---
 - name: Apply Config to an Junos Device
-  hosts: juniper1
+  hosts: azure-vsrx
   gather_facts: no
 
   var:
