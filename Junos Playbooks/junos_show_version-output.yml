@@ -1,6 +1,6 @@
 ---
 - name: Junos Command Playbook
-  hosts: all
+  hosts: azure-vsrx
   tasks:
 
     - name: run commands and specify the output format
