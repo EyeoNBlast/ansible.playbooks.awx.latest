@@ -1,24 +1,2 @@
-set interfaces ge-0/0/0 unit 0 family inet address 10.10.1.1/24
-set interfaces ge-0/0/0 description "Outside Interface"
-set security zones security-zone untrust interfaces ge-0/0/0.0
-
-set security address-book trust description trust_Zone
-set security address-book trust address address1 10.10.1.10/32
-set security address-book trust address address2 10.10.1.15/32
-set security address-book trust attach zone trust
-
-set interfaces ge-0/0/1 unit 0 family inet address 10.10.2.1/24
-set interfaces ge-0/0/1 description "Inside Interface"
-set security zones security-zone trust interfaces ge-0/0/1.0
-
-set security address-book trust description untrust_Zone
-set security address-book trust address address1 10.10.2.10/32
-set security address-book trust address address2 10.10.2.15/32
-set security address-book trust attach zone untrust
-
-set security policies from-zone trust to-zone untrust policy permit-https-out match source-address any
-set security policies from-zone trust to-zone untrust policy permit-https-out match destination-address any
-set security policies from-zone trust to-zone untrust policy permit-https-out match application junos-https
-set security policies from-zone trust to-zone untrust policy permit-https-out then permit
-set security policies from-zone trust to-zone untrust policy permit-https-out then log session-init
-set security policies from-zone trust to-zone untrust policy permit-https-out then log session-close
+set interfaces ge-0/0/0 unit 0 family inet address 10.50.5.1/24
+set interfaces ge-0/0/1 unit 0 family inet address 10.50.6.1/24
