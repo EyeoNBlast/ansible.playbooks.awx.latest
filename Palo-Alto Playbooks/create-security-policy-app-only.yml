@@ -1,6 +1,6 @@
 ---
 - name: Create Security Policy Source / Destination Addresses
-  hosts: "firewall"
+  hosts: "hostname"
   connection: local
 
   vars:

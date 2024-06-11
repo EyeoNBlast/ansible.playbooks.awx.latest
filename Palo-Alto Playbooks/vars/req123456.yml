@@ -1,4 +1,8 @@
 ---
+####################################################
+# Firewall Name
+hostname: azure-firewall
+
 ####################################################################
 # Source Address info
 #hostname_source - Name of Object
