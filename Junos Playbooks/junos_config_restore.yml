@@ -1,0 +1,15 @@
+---
+- name: Restore config from backup filename
+  hosts: azure-vsrx
+  gather_facts: yes
+
+  vars:
+  - filename: "{{ config_name }}"
+
+  tasks:
+
+    - name: load configure file into device
+      junipernetworks.junos.junos_config:
+      src: "{{ filename }}"
+      src_format: set
+      update: merged
