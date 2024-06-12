@@ -4,8 +4,8 @@
   gather_facts: true
 
   vars: 
-    - filename: {{ config_name }}
-    - dir: {{ directory }}
+    - filename: "{{ config_name }}"
+    - dir: "{{ directory }}"
 
   task:
 
@@ -14,5 +14,5 @@
         src: srx.cfg
         backup: true
         backup_options:
-          filename: {{ config_name }}
-          dir_path: {{ directory }}
+          filename: "{{ config_name }}"
+          dir_path: "{{ directory }}"
