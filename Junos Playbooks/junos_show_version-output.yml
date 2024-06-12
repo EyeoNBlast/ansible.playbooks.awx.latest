@@ -6,7 +6,7 @@
   - name: run commands and specify the output format
     junos_command:
       commands: show version
-      display: set
+      display: json
     register: result
 
   - name: display output
