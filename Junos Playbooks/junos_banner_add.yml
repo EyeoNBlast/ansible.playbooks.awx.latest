@@ -7,9 +7,9 @@
 
     - name: Add the following text to the banner
       junipernetworks.junos.junos_banner:
-      banner: login
-      text: |
-        Hi Innovation People this is a new banner
-        Line #2 Text
-        Line #3 Text
-      state: present
+        banner: login
+        text: |
+          Hi Innovation People this is a new banner
+          Line #2 Text
+          Line #3 Text
+        state: present
