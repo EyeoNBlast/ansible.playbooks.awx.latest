@@ -7,7 +7,7 @@
     - filename: "{{ config_name }}"
     - dir: "{{ directory }}"
 
-  task:
+  tasks:
 
     - name: configurable backup path
       junipernetworks.junos.junos_config:
