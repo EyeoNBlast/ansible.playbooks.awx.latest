@@ -1,0 +1,18 @@
+---
+- name: Config back up of vSRX
+  hosts: azure-vsrx
+  gather_facts: true
+
+  vars: 
+    - filename: {{ config_name }}
+    - dir: {{ directory }}
+
+  task:
+
+    - name: configurable backup path
+      junipernetworks.junos.junos_config:
+        src: srx.cfg
+        backup: true
+        backup_options:
+          filename: {{ config_name }}
+          dir_path: {{ directory }}
