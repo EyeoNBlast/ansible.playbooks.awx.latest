@@ -11,7 +11,7 @@
 
     - name: configurable backup path
       junipernetworks.junos.junos_config:
-        src: /var/home/Engineer/srx.cfg
+        #src: /var/home/Engineer/srx.cfg
         backup: true
         backup_options:
           filename: "{{ config_name }}"
