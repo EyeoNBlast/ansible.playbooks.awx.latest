@@ -3,12 +3,12 @@
   hosts: azure-vsrx
   tasks:
 
-    - name: run commands and specify the output format
-      junos_command:
-        commands: show version
-        display: json
-      register: result
+  - name: run commands and specify the output format
+    junos_command:
+      commands: show version
+      display: json
+    register: result
 
-    - name: display output
-      debug:
-      var: result.stdout_lines
+  - name: display output
+    debug:
+    var: result.stdout_lines
