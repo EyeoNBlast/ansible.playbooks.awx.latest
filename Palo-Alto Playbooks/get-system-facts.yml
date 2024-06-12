@@ -1,6 +1,6 @@
 ---
 - name: Gather system info
-  hosts: firewall
+  hosts: azure-firewall
   connection: local
 
   vars:
