@@ -12,7 +12,6 @@
     - name: remove loaded config
       junipernetworks.junos.junos_config:
           lines:
-            - load factory-default
             - load set srx.cfg
           comment: loaded from backup cfg
 
