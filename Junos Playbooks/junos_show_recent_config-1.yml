@@ -10,4 +10,4 @@
       commands: 
         - show configuration 
       display: json
-      dest_dir: "{{ playbook_dir }}"
+      #dest_dir: "{{ playbook_dir }}"
