@@ -9,9 +9,12 @@
 
   tasks:
 
-    - name: load configure file into device
+    - name: remove loaded config
       junipernetworks.junos.junos_config:
         zeroize: true
+
+    - name: load configure file into device
+      junipernetworks.junos.junos_config:
         src: "{{ filename }}"
         src_format: set
         #update: "{{ update_type }}"
