@@ -5,7 +5,7 @@
 
   vars:
   - filename: "{{ config_name }}"
-  - #update_type: "{{ update }}"
+  #- update_type: "{{ update }}"
 
   tasks:
 
