@@ -9,11 +9,11 @@
     junipernetworks.junos.junos_command:
       commands: 
         - show configuration 
-      display: json
+      display: xml
       #dest_dir: "{{ playbook_dir }}"
     register: result
 
   - name: display output
     debug:
       var: result.stdout_lines
-    dest_dir: "{{ playbook_dir }}"
+    #dest_dir: "{{ playbook_dir }}"
