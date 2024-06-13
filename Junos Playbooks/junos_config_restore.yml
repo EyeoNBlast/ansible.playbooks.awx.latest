@@ -5,13 +5,14 @@
 
   vars:
   - filename: "{{ config_name }}"
-  - update_type: "{{ update }}"
+  - #update_type: "{{ update }}"
 
   tasks:
 
     - name: load configure file into device
       junipernetworks.junos.junos_config:
+        zeroize: true
         src: "{{ filename }}"
         src_format: set
-        update: "{{ update_type }}"
+        #update: "{{ update_type }}"
         confirm_commit: true
