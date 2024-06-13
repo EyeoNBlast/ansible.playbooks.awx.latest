@@ -1,0 +1,10 @@
+---
+- name: Restore config from backup filename
+  hosts: azure-vsrx
+  gather_facts: no
+
+  tasks:
+
+    - name: remove loaded config
+      junipernetworks.junos.junos_config:
+          zeroize: true
