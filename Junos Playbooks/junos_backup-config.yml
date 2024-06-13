@@ -5,7 +5,7 @@
 
   vars: 
     - filename: "{{ config_name }}"
-    - dir: "{{ directory }}"
+    #- dir: "{{ directory }}"
 
   tasks:
 
@@ -16,4 +16,4 @@
         backup_options:
           backup_format: json
           filename: "{{ config_name }}"
-          dir_path: "{{ directory }}"
+          dir_path: "{{ playbook_dir }}"
