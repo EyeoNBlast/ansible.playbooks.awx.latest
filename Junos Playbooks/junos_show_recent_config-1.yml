@@ -11,3 +11,8 @@
         - show configuration 
       display: json
       #dest_dir: "{{ playbook_dir }}"
+    register: result
+
+  - name: display output
+    debug:
+      var: result.stdout_lines
