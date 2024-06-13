@@ -12,4 +12,4 @@
       junipernetworks.junos.junos_config:
         src: "{{ filename }}"
         src_format: set
-        update: override
+        update: replace
