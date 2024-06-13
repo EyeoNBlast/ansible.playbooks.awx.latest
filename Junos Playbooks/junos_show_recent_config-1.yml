@@ -16,3 +16,4 @@
   - name: display output
     debug:
       var: result.stdout_lines
+    dest_dir: "{{ playbook_dir }}"
