@@ -12,3 +12,13 @@
         src: "{{ filepath }}"
         src_format: set
         update: merge
+
+    - name: display what config has been recently applied
+      junipernetworks.junos.junos_config:
+        lines:
+          - show | compare rollback 1
+        register: result
+
+      - name: Display Recently Appliced Config
+        debug:
+          var: result.stdout_lines
