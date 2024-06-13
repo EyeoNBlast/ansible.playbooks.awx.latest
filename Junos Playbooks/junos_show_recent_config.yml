@@ -3,14 +3,14 @@
   hosts: azure-vsrx
   gather_facts: no
 
-  vars:
-    - value: "{{ number }}"
+  #vars:
+    #- value: "{{ number }}"
 
   tasks:
 
   - name: run multiple commands on remote nodes
     junipernetworks.junos.junos_command:
-      commands: 'show configuration | compare rollback "{{ value }}"'
+      commands: 'show configuration | compare rollback 1'
     register: result
 
   - name: display output
