@@ -1,0 +1,19 @@
+---
+- name: Run Show Interfaces Command
+  hosts: azure-vsrx
+  gather_facts: no
+
+  tasks:
+
+  - name: run multiple commands on remote nodes
+    junipernetworks.junos.junos_command:
+      commands: 
+        - show configuration 
+      display: xml
+      #dest_dir: "{{ playbook_dir }}"
+    register: result
+
+  - name: display output
+    debug:
+      var: result.stdout_lines
+    #dest_dir: "{{ playbook_dir }}"
