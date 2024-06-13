@@ -14,5 +14,6 @@
         #src: /var/home/Engineer/srx.cfg
         backup: true
         backup_options:
+        backup_format: json
           filename: "{{ config_name }}"
           dir_path: "{{ directory }}"
