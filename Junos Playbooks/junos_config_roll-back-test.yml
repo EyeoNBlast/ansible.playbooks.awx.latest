@@ -3,9 +3,12 @@
   hosts: azure-vsrx
   gather_facts: no
 
+  vars:
+    - number: "{{ rollback }}"
+
   tasks:
 
     - name: Perform Restore to Previous Config
       junipernetworks.junos.junos_config:
-        rollback: 2
+        rollback: "{{ number }}"
         confirm_commit: true
