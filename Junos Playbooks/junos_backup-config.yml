@@ -16,4 +16,4 @@
         backup_options:
           backup_format: json
           filename: "{{ config_name }}"
-          dir_path: "{{ playbook_dir }}"
+          dir_path: "{{ directory }}"
