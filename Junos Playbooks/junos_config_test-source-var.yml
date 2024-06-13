@@ -17,7 +17,7 @@
       junipernetworks.junos.junos_config:
         lines:
           - show | compare rollback 1
-        register: result
+      register: result
 
     - name: Display Recently Appliced Config
       debug:
