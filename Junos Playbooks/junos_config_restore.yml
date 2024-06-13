@@ -11,6 +11,6 @@
     - name: load configure file into device
       junipernetworks.junos.junos_config:
         src: "{{ filename }}"
-        src_format: set
-        update: replace
-        confirm_commit: true
+        #src_format: set
+        #update: replace
+        #confirm_commit: true
