@@ -12,6 +12,7 @@
     - name: remove loaded config
       junipernetworks.junos.junos_config:
         zeroize: true
+        confirm_commit: false
 
     - name: load configure file into device
       junipernetworks.junos.junos_config:
