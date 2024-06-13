@@ -10,7 +10,7 @@
 
   - name: run multiple commands on remote nodes
     junipernetworks.junos.junos_command:
-      commands: show configuration | compare rollback "{{ value }}"
+      commands: 'show configuration | compare rollback "{{ value }}"'
     register: result
 
   - name: display output
