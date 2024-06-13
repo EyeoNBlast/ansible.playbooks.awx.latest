@@ -4,12 +4,12 @@
   gather_facts: yes
 
   vars:
-  #- filename: "{{ config_name }}"
+  - filename: "{{ config_name }}"
 
   tasks:
 
     - name: load configure file into device
       junipernetworks.junos.junos_config:
-        src: /var/backup/azure-vsrx.cfg
+        src: "{{ filename }}"
         src_format: set
         update: merged
