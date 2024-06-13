@@ -8,4 +8,4 @@
     - name: Perform Restore to Previous Config
       junipernetworks.junos.junos_config:
         rollback: 2
-        #confirm_commit: true
+        confirm_commit: true
