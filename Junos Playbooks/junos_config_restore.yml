@@ -11,11 +11,8 @@
 
     - name: remove loaded config
       junipernetworks.junos.junos_config:
-          lines: delete
+          lines:
+            - delete
+            - load set srx.cfg
+          comment: loaded from backup cfg
 
-    - name: load configure file into device
-      junipernetworks.junos.junos_config:
-        src: "{{ filename }}"
-        #src_format: set
-        #update: "{{ update_type }}"
-        confirm_commit: true
