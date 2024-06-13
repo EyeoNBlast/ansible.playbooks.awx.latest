@@ -6,7 +6,7 @@
   tasks:
     - name: load configure lines into device
       junipernetworks.junos.junos_config:
-        src: "files/config.txt"
+        src: "/tmp/azure-vsrx.cfg"
         src_format: set
         comment: update config
         update: merge
