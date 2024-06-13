@@ -13,3 +13,4 @@
         src: "{{ filename }}"
         src_format: set
         update: replace
+        confirm_commit: true
