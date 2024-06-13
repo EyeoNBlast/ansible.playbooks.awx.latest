@@ -19,6 +19,6 @@
           - show | compare rollback 1
         register: result
 
-      - name: Display Recently Appliced Config
-        debug:
-          var: result.stdout_lines
+    - name: Display Recently Appliced Config
+      debug:
+        var: result.stdout_lines
