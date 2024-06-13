@@ -1,0 +1,11 @@
+---
+- name: RollBack To Previous Config
+  hosts: azure-vsrx
+  gather_facts: no
+
+  tasks:
+
+    - name: Perform Restore to Previous Config
+      junipernetworks.junos.junos_config:
+        rollback: 0
+        confirm_commit: true
