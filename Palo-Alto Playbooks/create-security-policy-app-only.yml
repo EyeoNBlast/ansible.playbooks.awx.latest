@@ -1,6 +1,6 @@
 ---
 - name: Create Security Policy Source / Destination Addresses
-  #hosts: "hostname"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
