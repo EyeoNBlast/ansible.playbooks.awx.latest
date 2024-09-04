@@ -1,6 +1,6 @@
 ---
 - name: Create Security Policy Source / Destination Addresses
-  hosts: "{{ hostname }}"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
@@ -31,7 +31,7 @@
         description: "{{ destination_description }}"
 
 - name: Create Security Policy {{ policy_name }}
-  hosts: "{{ hostname }}"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
@@ -63,7 +63,7 @@
         #log_setting: "{{ log_setting }}"
 
 - name: Commit firewall candidate configuration
-  hosts: "{{ hostname }}"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
