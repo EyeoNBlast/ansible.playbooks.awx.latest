@@ -1,6 +1,6 @@
 ---
 - name: Gather system info
-  hosts: azure-firewall
+  hosts: azure-paloalto
   connection: local
 
   vars:
