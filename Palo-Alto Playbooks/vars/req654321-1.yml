@@ -47,8 +47,8 @@ service_name: any
 # Security Policy Information
 # 
 policy_name: PROD-Users-to-PROD-Servers
-policy_source_zone: dmz
-policy_destination_zone: users
+policy_source_zone: users
+policy_destination_zone: dmz
 # Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
 policy_action: allow
 
