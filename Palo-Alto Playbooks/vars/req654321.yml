@@ -14,7 +14,7 @@ source_description: PROD-Server
 
 # Destination Address Info
 #hostname_source - Name of Object
-hostname_destination: PROD-Users_10.10.11.0/24
+hostname_destination: PROD-Users_10.10.11.50-24
 #destination_address - IPV4 address with CDIR
 destination_address: 10.10.11.0/24
 #destination_description - Description of Device
