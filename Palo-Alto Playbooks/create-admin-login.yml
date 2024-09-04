@@ -1,6 +1,6 @@
 ---
 - name: Create Super User
-  hosts: "azure-firewall"
+  hosts: "azure-paloalto"
   connection: local
   gather_facts: no
 
