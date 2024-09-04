@@ -10,7 +10,7 @@
       password: "{{ password }}"
 
   vars_files:
-    - {{ location }}
+    - "{{ location }}"
 
   collections:
     - paloaltonetworks.panos
@@ -41,7 +41,7 @@
       password: "{{ password }}"
 
   vars_files:
-    - {{ location }}
+    - "{{ location }}"
 
   collections:
     - paloaltonetworks.panos
