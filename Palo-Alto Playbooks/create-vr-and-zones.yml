@@ -1,6 +1,6 @@
 ---
 - name: Create VR and Zones
-  hosts: "firewall"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
