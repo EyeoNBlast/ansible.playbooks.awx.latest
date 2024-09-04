@@ -1,0 +1,62 @@
+---
+####################################################
+# Firewall Name
+hostname: azure-paloalto
+
+####################################################################
+# Source Address info
+#hostname_source - Name of Object
+hostname_source: PROD-Users_10.10.11.50-24
+#source_address - IPV4 address with CDIR
+source_address: 10.10.11.0/24
+#source_description - Description of Device
+source_description: PROD-Users
+
+# Destination Address Info
+#hostname_source - Name of Object
+hostname_destination: PROD-Server_10.10.10.50-32
+#destination_address - IPV4 address with CDIR
+destination_address: 10.10.10.50/32
+#destination_description - Description of Device
+destination_description: Prod-Servers
+
+####################################################################
+
+# Application Information PA App ID
+# ssl, web-browsing, ssh, tftp, ftp, dhcp, dns, ping
+# If needing single application ['ssh']
+# If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
+# If using a custom port only set application: ['any']
+# If a custom service isnt required un playbook create-security-policy-app.yml
+application: ['ssh', 'ftp','ssl','dns']
+
+##################################################
+# Service Information
+# If you need to add multiple service objects create a .csv file and use playbook create-multiple-service-objects.yml
+# If you need to add multiple service objects and add them to a group create a .csv file and use playbook create-multiple-service-objects-group.yml
+# and specificy the service-group name below e.g service_name: service_group
+
+# If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
+# If only an application is required set service_name: any
+service_name: any
+#service_protocol: tcp
+#service_destination_port: 22
+#service_description: SSH
+
+##################################################
+# Security Policy Information
+# 
+policy_name: PROD-Server-to-PROD-Users
+policy_source_zone: dmz
+policy_destination_zone: users
+# Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
+policy_action: allow
+
+# Policy Logging 
+# Log at session start log_start: true / log_end: false
+# log at session end log_start: false / log_end: true
+# log at session start and end log_start: true / log_end: true
+log_start: false
+log_end: true
+# Specifiy a Logging Profile
+#log_setting: none
