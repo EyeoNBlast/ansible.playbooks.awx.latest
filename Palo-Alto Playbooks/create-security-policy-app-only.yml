@@ -10,7 +10,7 @@
       password: "{{ password }}"
 
   vars_files:
-    - vars/req123456.yml
+    - vars/req654321.yml
 
   collections:
     - paloaltonetworks.panos
@@ -31,7 +31,7 @@
         description: "{{ destination_description }}"
 
 - name: Create Security Policy {{ policy_name }}
-  hosts: "firewall"
+  hosts: "hostname"
   connection: local
 
   vars:
@@ -41,7 +41,7 @@
       password: "{{ password }}"
 
   vars_files:
-    - vars/req123456.yml
+    - vars/req654321.yml
 
   collections:
     - paloaltonetworks.panos
@@ -63,7 +63,7 @@
         #log_setting: "{{ log_setting }}"
 
 - name: Commit firewall candidate configuration
-  hosts: "firewall"
+  hosts: "hostname"
   connection: local
 
   vars:
