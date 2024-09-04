@@ -1,6 +1,6 @@
 ---
 - name: Commit firewall candidate configuration
-  hosts: "firewall"
+  hosts: "azure-paloalto"
   connection: local
 
   vars:
