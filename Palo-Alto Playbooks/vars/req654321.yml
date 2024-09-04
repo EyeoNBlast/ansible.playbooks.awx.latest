@@ -1,7 +1,7 @@
 ---
 ####################################################
 # Firewall Name
-hostname: azure-firewall
+hostname: azure-paloalto
 
 ####################################################################
 # Source Address info
