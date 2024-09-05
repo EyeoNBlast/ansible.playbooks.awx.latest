@@ -1,6 +1,6 @@
 ---
 - name: Gather system info
-  hosts: azure-paloalto
+  hosts: azure-paloalto-2
   connection: local
 
   vars:
