@@ -6,19 +6,19 @@ hostname: azure-paloalto
 ####################################################################
 # Source Address info
 #hostname_source - Name of Object
-hostname_source: PROD-Users_10.10.11.50-24
+hostname_source: DevSec_Ops_Test_10.10.10.0-24
 #source_address - IPV4 address with CDIR
-source_address: 10.10.11.0/24
+source_address: 10.10.10.0/24
 #source_description - Description of Device
-source_description: PROD-Users
+source_description: DevSec_Ops_Test
 
 # Destination Address Info
 #hostname_source - Name of Object
-hostname_destination: PROD-Server_10.10.10.50-32
+hostname_destination: Server-Web_10.50.10.25-32
 #destination_address - IPV4 address with CDIR
-destination_address: 10.10.10.50/32
+destination_address: 10.50.10.25/32
 #destination_description - Description of Device
-destination_description: Prod-Servers
+destination_description: Server-Web-1
 
 ####################################################################
 
@@ -28,7 +28,7 @@ destination_description: Prod-Servers
 # If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
 # If using a custom port only set application: ['any']
 # If a custom service isnt required un playbook create-security-policy-app.yml
-application: ['ssh', 'ftp','ssl','dns']
+application: ['ssh', 'ftp','ssl','dns','ping']
 
 ##################################################
 # Service Information
@@ -46,7 +46,7 @@ service_name: any
 ##################################################
 # Security Policy Information
 # 
-policy_name: PROD-Users-to-PROD-Servers
+policy_name: DevSec_Ops-Test-To-Web
 policy_source_zone: users
 policy_destination_zone: dmz
 # Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
