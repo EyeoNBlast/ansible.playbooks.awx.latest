@@ -46,7 +46,7 @@ service_description: http-apps
 ##################################################
 # Security Policy Information
 # 
-policy_name: You Shall Not Pass!!!
+policy_name: You_Shall_Not_Pass
 policy_source_zone: dmz
 policy_destination_zone: any
 # Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
