@@ -28,7 +28,7 @@ destination_description: Prod-Servers
 # If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
 # If using a custom port only set application: ['any']
 # If a custom service isnt required un playbook create-security-policy-app.yml
-application: ['https','ssl','dns']
+application: ['dhcp','ssl','dns']
 
 ##################################################
 # Service Information

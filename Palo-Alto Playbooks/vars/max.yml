@@ -28,7 +28,7 @@ destination_description: This was not done by others
 # If needing multiple applications e.g ['ssh', 'ftp', 'ssl']
 # If using a custom port only set application: ['any']
 # If a custom service isnt required un playbook create-security-policy-app.yml
-application: ['http', 'dhcp']
+application: ['web-browsing', 'dhcp']
 
 ##################################################
 # Service Information
@@ -39,14 +39,14 @@ application: ['http', 'dhcp']
 # If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
 # If only an application is required set service_name: any
 service_name: any
-service_protocol: http
+service_protocol: tcp
 service_destination_port: 8080
 service_description: http-apps
 
 ##################################################
 # Security Policy Information
 # 
-policy_name: You_Shall_Not_Pass
+policy_name: You-Shall-Not-Pass
 policy_source_zone: dmz
 policy_destination_zone: any
 # Policy_action allowed values: : allow, deny, drop, reset-client, reset-server, reset-both
