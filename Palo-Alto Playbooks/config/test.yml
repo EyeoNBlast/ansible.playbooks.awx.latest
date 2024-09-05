@@ -1,0 +1,8 @@
+#Step 1 Password Adminstration
+# Change default admin password 
+#default: admin
+#default.admin.password: Gat3w@ysAns1bl3Test!
+# Username for new Admin Account
+new.admin.username: ansible-admin
+# Password for new Admin Account
+new.admin.password: Gat3w@ysAns1bl3Test!
