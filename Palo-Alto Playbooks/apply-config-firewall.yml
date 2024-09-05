@@ -1,0 +1,205 @@
+---
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Change Default Admin Password
+      paloaltonetworks.panos.panos_administrator:
+        admin_username: admin
+        admin_password: "{{ default.admin.password }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_administrator:
+        admin_username: "{{ new.admin.username }}"
+        admin_password: "{{ new.admin.password }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_mgtconfig:
+        hostname: "{{ device.hostname }}"
+        domain: "{{ device.domain }}"
+        dns_server_primary: "{{ device.dns.primary }}"
+        dns_server_secondary: "{{ device.dns.secondary }}"
+        login_banner: "{{ device.login_banner }}"
+        ntp_server_primary: "{{ device.ntp.primary }}"
+        ntp_server_secondary: "{{ device.ntp.secondary }}"
+        panorama_primary: "{{ device.panorama.primary }}"
+        panorama_secondary: "{{ device.panorama.secondary }}"
+        timezone: "{{ device.timezone }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_syslog_profile:
+        name: "{{ device.syslog.profile.name }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_syslog_server:
+        facility: "{{ device.syslog.facility }}"
+        format: "{{ device.syslog.format }}"
+        name: "{{ device.syslog.name }}"
+        server: "{{ device.syslog.server }}"
+        syslog_port: "{{ device.syslog.syslog.port }}"
+        syslog_profile: "{{ device.syslog.syslog.profile }}"
+        transport: "{{ device.syslog.transport }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_interface:
+        comment: "{{ device.interface.comment }}"
+        if_name: "{{ device.interface.if_name }}"
+        link_duplex: "{{ device.interface.link_duplex }}"
+        link_speed: "{{ device.interface.link_speed }}"
+        link_state: "{{ device.interface.link_state }}"
+        #management_profile: "{{ device.interface.mgmt_profile }}"
+        mode: "{{ device.interface.mode }}"
+        #vr_name: "{{ device.interface.vr_name }}"
+        #zone_name: "{{ device.interface.zone_name }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Zone
+      paloaltonetworks.panos.panos_zones:
+        interface: "{{ device.zone.interface }}"
+        #log_setting: "{{ device.zone.log_setting }}"
+        mode: "{{ device.zone.mode }}"
+        zone: "{{ device.zone.name }}"
+        #zone_profile: "{{ device.zone_profile }}"
+
+- name: Apply Configurations to Firewall
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new management profile
+      paloaltonetworks.panos.panos_management_profile:
+        name: "{{ device.mgmt.profile.name }}"
+        https: "{{ device.mgmt.profile.https }}"
+        permitted_ip: "{{ device.mgmt.profile.permitted_ip }}"
+        ping : "{{ device.mgmt.profile.ping }}"
+        snmp: "{{ device.mgmt.profile.snmp }}"
+
+
+  
+

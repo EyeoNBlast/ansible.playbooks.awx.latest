@@ -1,0 +1,94 @@
+# This is a form to fill in to configure the following 
+# parts of a palo alto firewall
+#
+
+#Step 1 Password Adminstration
+# Change default admin password 
+default.admin.password: Gat3w@ysAns1bl3Test!
+# Username for new Admin Account
+new.admin.username: ansible-admin
+# Password for new Admin Account
+new.admin.password: Gat3w@ysAns1bl3Test!
+
+#Step 2 Configure Firewall Management
+# Apply Device Hostname
+device.hostname: ansible-test-firewall
+# Apply Device Domain
+device.domain: ansible.test.net
+# Apply Primary DNS Server
+device.dns.primary: 10.100.50.25
+# Apply Secondary DNS Server
+device.dns.secondary: 10.200.50.25
+# Apply Login Banner
+device.login_banner: "This is a Gateways Ansible Test Device. HAHAHAHAHHA"
+# Apply Primary NTP Server
+device.ntp.primary: 10.100.50.50
+# Appyl Secondary NTP Server
+device.ntp.secondary: 10.200.50.100
+# Apply Panorama Primary Server
+device.panorama.primary: 10.100.50.200
+# Apply Panorama Secondary Server
+device.panorama.secondary: 10.200.50.200
+# Set Device Timezone
+device.timezone: NZ
+
+#Step # Configure Device Syslog
+# Configure Syslog Profile Name
+device.syslog.profile.name: jarvis_syslog
+# Configure Syslog Server
+# Choice: LOG_USER, LOG_LOCAL0 - LOG_LOCAL07
+device.syslog.facility: LOG_USER
+# Choice: BSD or IETF
+device.syslog.format: BSD
+device.syslog.name: jarvis_syslog
+# Configure Server IP
+device.syslog.server: 10.100.50.205
+# Configure Server Port
+device.syslog.syslog.port: 10514
+device.syslog.syslog.profile: jarvis_syslog
+# Choice UDP, SSL, TCP
+device.syslog.transport: SSL
+
+#Step 4 Configure Interface
+# Description of Interface
+device.interface.comment: Producion_Config_Ansible
+#Interface to Configure e.g ethernetx/x
+device.interface.if_name: ethernet1/5
+#Choice auto, full, half
+device.interface.link_duplex: auto
+#Choice auto, 10, 100, 1000 mbps
+device.interface.link_speed: 100
+#Choice auto, up, down
+device.interface.link_state: down
+#
+#device.interface.mgmt_profile
+#Choice layer-3, layer-2, ha, tap, decrypt-mirror, aggregate-group, virtual-wire
+device.interface.mode: layer-3
+# Specificy a virtual-router 
+#device.interface.vr_name:
+# Specificy a zone
+#device.interface.zone_name:
+
+#Step 5 Configure Zone
+# List interfaces to attach to zone
+device.zone.interface: ethernet1/5
+#
+#device.zone.log_setting:
+# Type of Zone, Must Match interface
+device.zone.mode: layer-3
+# Name of Zone
+device.zone.name: ansible-test-zone
+#
+#device.zone_profile:
+
+#Step 5 Configure Interface Management Profile
+# Name of profile
+device.mgmt.profile.name: ansible-test-profile
+# true = Enable, false = Disable
+device.mgmt.profile.https: true
+# List permitted IP range for profile 
+device.mgmt.profile.permitted_ip: 10.0.0.0/8
+# true = Enable, false = Disable
+device.mgmt.profile.ping: true
+# true = Enable, false = Disable
+device.mgmt.profile.snmp: true
