@@ -1,4 +1,5 @@
 firewall
 azure-firewall
 panorama
-azure-paloalto
+azure-paloalto-1
+azure-paloalto-2
