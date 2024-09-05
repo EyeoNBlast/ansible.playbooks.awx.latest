@@ -18,7 +18,7 @@
   tasks:
     - name: Change Default Admin Password
       paloaltonetworks.panos.panos_administrator:
-        admin_username: admin
+        #admin_username: admin
         admin_password: "{{ default.admin.password }}"
 
 - name: Apply Configurations to Firewall
