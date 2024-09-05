@@ -1,6 +1,6 @@
 ---
 - name: Create VR and Zones
-  hosts: "azure-paloalto"
+  hosts: "azure-paloalto-1"
   connection: local
 
   vars:
