@@ -38,7 +38,7 @@ application: ['http', 'dhcp']
 
 # If a custom port is required remove # and add in the details and run playbook create-security-policy-app_svc.yml
 # If only an application is required set service_name: any
-#service_name: any
+service_name: any
 service_protocol: http
 service_destination_port: 8080
 service_description: http-apps
