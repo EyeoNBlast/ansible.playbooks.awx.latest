@@ -19,7 +19,7 @@
     - name: Change Admin Password
       paloaltonetworks.panos.panos_administrator:
         #admin_username: 
-        admin_password: "{{ default.admin.password }}"
+        #admin_password: "{{ default.admin.password }}"
 
 - name: Apply Configurations to Firewall
   hosts: "azure-paloalto-2"
