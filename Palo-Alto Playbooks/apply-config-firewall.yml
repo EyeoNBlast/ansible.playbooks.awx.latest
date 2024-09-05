@@ -168,7 +168,7 @@
 
   tasks:
     - name: Create new Zone
-      paloaltonetworks.panos.panos_zones:
+      paloaltonetworks.panos.panos_zone:
         interface: "{{ device.zone.interface }}"
         #log_setting: "{{ device.zone.log_setting }}"
         mode: "{{ device.zone.mode }}"
