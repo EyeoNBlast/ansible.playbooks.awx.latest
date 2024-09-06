@@ -15,7 +15,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Admin Account
+    - name: Create Admin Account
       paloaltonetworks.panos.panos_administrator:
-        admin_username: "{{ new.admin.username }}"
-        admin_password: "{{ new.admin.password }}"
+        admin_username: "{{ device.admin.username }}"
+        admin_password: "{{ device.admin.password }}"

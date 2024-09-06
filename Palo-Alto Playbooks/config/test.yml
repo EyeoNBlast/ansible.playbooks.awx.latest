@@ -3,6 +3,6 @@
 #default: admin
 #default.admin.password: Gat3w@ysAns1bl3Test!
 # Username for new Admin Account
-new.admin.username: ansible-admin
+device.admin.password.admin.username: ansible-admin
 # Password for new Admin Account
-new.admin.password: Gat3w@ysAns1bl3Test!
+device.admin.password: Gat3w@ysAns1bl3Test!
