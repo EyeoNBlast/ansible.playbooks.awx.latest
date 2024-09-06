@@ -18,8 +18,9 @@
   tasks:
     - name: Change Admin Password
       paloaltonetworks.panos.panos_administrator:
+        provider: "{{ device }}"
         #admin_username: 
-        #admin_password: "{{ default.admin.password }}"
+        admin_password: "{{ default.admin.password }}"
 
 - name: Apply Configurations to Firewall
   hosts: "azure-paloalto-2"
@@ -40,6 +41,7 @@
   tasks:
     - name: Create new Admin Account
       paloaltonetworks.panos.panos_administrator:
+        provider: "{{ device }}"
         admin_username: "{{ new.admin.username }}"
         admin_password: "{{ new.admin.password }}"
 
@@ -62,6 +64,7 @@
   tasks:
     - name: Create new Admin Account
       paloaltonetworks.panos.panos_mgtconfig:
+        rovider: "{{ device }}"
         hostname: "{{ device.hostname }}"
         domain: "{{ device.domain }}"
         dns_server_primary: "{{ device.dns.primary }}"
@@ -92,7 +95,8 @@
   tasks:
     - name: Create new Admin Account
       paloaltonetworks.panos.panos_syslog_profile:
-        name: "{{ device.syslog.profile.name }}"
+       provider: "{{ device }}"
+       name: "{{ device.syslog.profile.name }}"
 
 - name: Apply Configurations to Firewall
   hosts: "azure-paloalto-2"
@@ -113,6 +117,7 @@
   tasks:
     - name: Create new Admin Account
       paloaltonetworks.panos.panos_syslog_server:
+        provider: "{{ device }}"
         facility: "{{ device.syslog.facility }}"
         format: "{{ device.syslog.format }}"
         name: "{{ device.syslog.name }}"
@@ -140,6 +145,7 @@
   tasks:
     - name: Create new Admin Account
       paloaltonetworks.panos.panos_interface:
+        provider: "{{ device }}"
         comment: "{{ device.interface.comment }}"
         if_name: "{{ device.interface.if_name }}"
         link_duplex: "{{ device.interface.link_duplex }}"
@@ -169,6 +175,7 @@
   tasks:
     - name: Create new Zone
       paloaltonetworks.panos.panos_zone:
+        provider: "{{ device }}"
         interface: "{{ device.zone.interface }}"
         #log_setting: "{{ device.zone.log_setting }}"
         mode: "{{ device.zone.mode }}"
@@ -194,6 +201,7 @@
   tasks:
     - name: Create new management profile
       paloaltonetworks.panos.panos_management_profile:
+        provider: "{{ device }}"
         name: "{{ device.mgmt.profile.name }}"
         https: "{{ device.mgmt.profile.https }}"
         permitted_ip: "{{ device.mgmt.profile.permitted_ip }}"
