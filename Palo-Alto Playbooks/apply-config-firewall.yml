@@ -67,7 +67,7 @@
         rovider: "{{ device }}"
         hostname: "{{ device_hostname }}"
         domain: "{{ device_domain }}"
-        dns_server_primary: "{{ device_dns.primary }}"
+        dns_server_primary: "{{ device_dns_primary }}"
         dns_server_secondary: "{{ device_dns_secondary }}"
         login_banner: "{{ device_login_banner }}"
         ntp_server_primary: "{{ device_ntp_primary }}"
