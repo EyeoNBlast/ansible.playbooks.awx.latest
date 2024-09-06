@@ -1,2 +1,2 @@
 rule_name;source_zone;source_ip;destination_zone;destination_ip;application;service;action;log_start;log_end
-Deny-Ping;any;any;any;any;ping;any;deny;TRUE;TRUE
+Deny-Ping;any;any;any;any;ping;any;allow;TRUE;TRUE
