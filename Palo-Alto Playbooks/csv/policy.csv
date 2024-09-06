@@ -1,2 +1,2 @@
 rule_name,source_zone,source_ip,destination_zone,destination_ip,application,service,action,log_start,log_end
-PROD-to-Users,dmz,DMZ-Web-Server-1_10.100.10.50-32,users,Sales-Web-Server-1_10.100.10.50-32,ssl,any,allow,FALSE,TRUE
+PROD-to-Users,dmz,DMZ-Web-Server-1_10.100.10.50-32,users,Sales-Web-Server-1_10.100.10.50-32,ssl,TCP-443,allow,FALSE,TRUE
