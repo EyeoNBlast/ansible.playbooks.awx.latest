@@ -3,5 +3,6 @@
         "TAB",
         ",",
         ";"
-    ]
+    ],
+    "rainbow_csv.enable_sticky_header": false
 }
