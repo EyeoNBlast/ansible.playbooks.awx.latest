@@ -1,6 +1,8 @@
-- name: Apply Configurations to Firewall
-  hosts: azure-paloalto-2
+---
+- name: Create Super User
+  hosts: "azure-paloalto"
   connection: local
+  gather_facts: no
 
   vars:
     device:
@@ -8,8 +10,8 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-  vars_files:
-  - "{{ location }}"
+    vars_files:
+      - "{{ location }}"
 
   collections:
     - paloaltonetworks.panos
