@@ -1,2 +1,2 @@
 rule_name;source_zone;source_ip;destination_zone;destination_ip;application;service;action;log_start;log_end
-PROD-to-Users;dmz;DMZ-Web-Server-1_10.100.10.50-32;users;Sales-Web-Server-1_10.100.10.50-32;dns,ssl,ftp;any;allow;FALSE;TRUE
+Deny-Ping;any;any;any;any;ping;any;deny;TRUE;TRUE
