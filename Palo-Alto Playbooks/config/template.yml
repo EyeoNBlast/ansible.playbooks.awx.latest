@@ -54,7 +54,7 @@ device_syslog_transport: SSL
 # Description of Interface
 device_interface_comment: Producion_Config_Ansible
 #Interface to Configure e_g ethernetx/x
-device_interface_if_name: ['ethernet1/5']
+device_interface_if_name: "ethernet1/5"
 #Choice auto, full, half
 device_interface_link_duplex: auto
 #Choice auto, 10, 100, 1000 mbps
@@ -72,7 +72,7 @@ device_interface_mode: layer3
 
 #Step 5 Configure Zone
 # List interfaces to attach to zone
-device_zone_interface: ['ethernet1/5']
+device_zone_interface: "ethernet1/5"
 #
 #device_zone_log_setting:
 # Type of Zone, Must Match interface
