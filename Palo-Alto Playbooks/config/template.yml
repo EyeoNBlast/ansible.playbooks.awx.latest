@@ -55,6 +55,8 @@ device_syslog_transport: SSL
 device_interface_comment: Producion_Config_Ansible
 #Interface to Configure e_g ethernetx/x
 device_interface_if_name: "ethernet1/5"
+# IP Address of the Interface
+device_interface_ip:
 #Choice auto, full, half
 device_interface_link_duplex: auto
 #Choice auto, 10, 100, 1000 mbps

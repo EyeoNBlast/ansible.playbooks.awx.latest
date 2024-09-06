@@ -148,6 +148,7 @@
         provider: "{{ device }}"
         comment: "{{ device_interface_comment }}"
         if_name: "{{ device_interface_if_name }}"
+        ip: "{{ device_interface_ip }}"
         link_duplex: "{{ device_interface_link_duplex }}"
         link_speed: "{{ device_interface_link_speed }}"
         link_state: "{{ device_interface_link_state }}"
