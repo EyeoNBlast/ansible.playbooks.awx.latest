@@ -63,8 +63,8 @@ device_interface_link_speed: 100
 device_interface_link_state: down
 #
 #device_interface_mgmt_profile
-#Choice layer-3, layer-2, ha, tap, decrypt-mirror, aggregate-group, virtual-wire
-device_interface_mode: layer-3
+#Choice layer3, layer2, ha, tap, decrypt-mirror, aggregate-group, virtual-wire
+device_interface_mode: layer3
 # Specificy a virtual-router 
 #device_interface_vr_name:
 # Specificy a zone
@@ -76,7 +76,7 @@ device_zone_interface: ethernet1/5
 #
 #device_zone_log_setting:
 # Type of Zone, Must Match interface
-device_zone_mode: layer-3
+device_zone_mode: layer3
 # Name of Zone
 device_zone_name: ansible-test-zone
 #
