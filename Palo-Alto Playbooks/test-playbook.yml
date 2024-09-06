@@ -10,8 +10,8 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-    vars_files:
-      - "{{ location }}"
+  vars_files:
+    - "{{ location }}"
 
   collections:
     - paloaltonetworks.panos
