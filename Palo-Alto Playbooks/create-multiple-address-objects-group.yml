@@ -1,6 +1,6 @@
 ---
 - name: Create Address Object from a CSV Source File
-  hosts: "firewall"
+  hosts: "azure-paloalto-2"
   connection: local
 
   vars:
