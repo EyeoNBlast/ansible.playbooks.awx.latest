@@ -1,6 +1,6 @@
 - name: Apply Configurations to Firewall
   hosts: "azure-paloalto-2"
-  connection: local
+  #connection: local
 
   vars:
     device:
