@@ -13,11 +13,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Change Admin Password
-      paloaltonetworks_panos_panos_administrator:
+      paloaltonetworks.panos.panos_administrator:
         provider: "{{ device }}"
         #admin_username: 
         admin_password: "{{ default_admin_password }}"
@@ -36,11 +36,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Admin Account
-      paloaltonetworks_panos_panos_administrator:
+      paloaltonetworks.panos.panos_administrator:
         provider: "{{ device }}"
         admin_username: "{{ new_admin_username }}"
         admin_password: "{{ new_admin_password }}"
@@ -59,15 +59,15 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Admin Account
-      paloaltonetworks_panos_panos_mgtconfig:
+      paloaltonetworks.panos.panos_mgtconfig:
         rovider: "{{ device }}"
         hostname: "{{ device_hostname }}"
         domain: "{{ device_domain }}"
-        dns_server_primary: "{{ device_dns_primary }}"
+        dns_server_primary: "{{ device_dns.primary }}"
         dns_server_secondary: "{{ device_dns_secondary }}"
         login_banner: "{{ device_login_banner }}"
         ntp_server_primary: "{{ device_ntp_primary }}"
@@ -90,11 +90,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Admin Account
-      paloaltonetworks_panos_panos_syslog_profile:
+      paloaltonetworks.panos.panos_syslog_profile:
        provider: "{{ device }}"
        name: "{{ device_syslog_profile_name }}"
 
@@ -112,11 +112,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Admin Account
-      paloaltonetworks_panos_panos_syslog_server:
+      paloaltonetworks.panos.panos_syslog_server:
         provider: "{{ device }}"
         facility: "{{ device_syslog_facility }}"
         format: "{{ device_syslog_format }}"
@@ -140,11 +140,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Admin Account
-      paloaltonetworks_panos_panos_interface:
+      paloaltonetworks.panos.panos_interface:
         provider: "{{ device }}"
         comment: "{{ device_interface_comment }}"
         if_name: "{{ device_interface_if_name }}"
@@ -170,11 +170,11 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new Zone
-      paloaltonetworks_panos_panos_zone:
+      paloaltonetworks.panos.panos_zone:
         provider: "{{ device }}"
         interface: "{{ device_zone_interface }}"
         #log_setting: "{{ device_zone_log_setting }}"
@@ -196,12 +196,12 @@
   - "{{ location }}"
 
   collections:
-    - paloaltonetworks_panos
+    - paloaltonetworks.panos
 
   tasks:
     - name: Create new management profile
-      paloaltonetworks_panos_panos_management_profile:
-        provider: "{{ device }}"
+      paloaltonetworks.panos.panos_management_profile:
+        
         name: "{{ device_mgmt_profile_name }}"
         https: "{{ device_mgmt_profile_https }}"
         permitted_ip: "{{ device_mgmt_profile_permitted_ip }}"
