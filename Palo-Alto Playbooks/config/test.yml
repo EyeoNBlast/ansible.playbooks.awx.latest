@@ -1,6 +1,3 @@
-ip_address: "10.0.10.6"
-username: "palo-alto"
-password: "PaloAlto!PaloAlto!"
 #Step 1 Password Adminstration
 # Change default admin password 
 #default: admin
