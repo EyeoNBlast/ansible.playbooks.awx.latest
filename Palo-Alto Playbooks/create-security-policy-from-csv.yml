@@ -35,4 +35,5 @@
         action: "{{ item.value.action }}"
         log_start: "{{ item.value.log_start }}"
         log_end: "{{ item.value.log_end }}"
+        disabled: "{{ item.value.disabled }}"
       with_items: "{{ csv_data.dict | dict2items }}"
