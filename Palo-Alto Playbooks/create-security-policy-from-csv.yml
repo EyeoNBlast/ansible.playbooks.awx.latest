@@ -1,6 +1,6 @@
 ---
 - name: Create Security Policy From CSV File
-  hosts: "firewall"
+  hosts: "azure-paloalto-2"
   connection: local
 
   vars:
@@ -9,7 +9,7 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-    csv_filename: "csv/REQ50402301.csv"
+    csv_filename: "csv/policy.csv"
 
   collections:
     - paloaltonetworks.panos
