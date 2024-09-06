@@ -64,7 +64,7 @@
   tasks:
     - name: Create Management Profile
       paloaltonetworks.panos.panos_mgtconfig:
-        rovider: "{{ device }}"
+        provider: "{{ device }}"
         hostname: "{{ device_hostname }}"
         domain: "{{ device_domain }}"
         dns_server_primary: "{{ device_dns_primary }}"
