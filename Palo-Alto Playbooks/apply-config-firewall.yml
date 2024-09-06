@@ -62,7 +62,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Admin Account
+    - name: Create Management Profile
       paloaltonetworks.panos.panos_mgtconfig:
         rovider: "{{ device }}"
         hostname: "{{ device_hostname }}"
@@ -93,7 +93,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Admin Account
+    - name: Create new Syslog profile
       paloaltonetworks.panos.panos_syslog_profile:
        provider: "{{ device }}"
        name: "{{ device_syslog_profile_name }}"
@@ -115,7 +115,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Admin Account
+    - name: Create new Syslog Server
       paloaltonetworks.panos.panos_syslog_server:
         provider: "{{ device }}"
         facility: "{{ device_syslog_facility }}"
@@ -143,7 +143,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create new Admin Account
+    - name: Create new Interface
       paloaltonetworks.panos.panos_interface:
         provider: "{{ device }}"
         comment: "{{ device_interface_comment }}"
@@ -201,7 +201,7 @@
   tasks:
     - name: Create new management profile
       paloaltonetworks.panos.panos_management_profile:
-        
+        provider: "{{ device }}"
         name: "{{ device_mgmt_profile_name }}"
         https: "{{ device_mgmt_profile_https }}"
         permitted_ip: "{{ device_mgmt_profile_permitted_ip }}"
