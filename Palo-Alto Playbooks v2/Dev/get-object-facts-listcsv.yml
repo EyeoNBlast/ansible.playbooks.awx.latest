@@ -1,0 +1,39 @@
+---
+- name: Gather Object Facts
+  hosts: azure-firewall
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+    csv_filename: "csv/objects.csv"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Read CSV file
+      ansible.builtin.read_csv:
+        path: "{{ csv_filename }}"
+        key: rule_name
+        #delimiter: ';'
+      register: csv_data
+
+    - name: Gather Object Facts
+      paloaltonetworks.panos.panos_object_facts:
+        provider: "{{ device }}"
+        name: "{{ item.value.name | default(omit) }}"
+        name_regex: "{{ item.value.name_regex | default(omit) }}"
+        object_type: "{{ item.value.object_type | mandatory }}"
+        field: "{{ item.value.device_object_field | default(omit) }}"
+        field_search_type: "{{ item.value.field_search_type | default(omit) }}"
+        field_search_value: "{{ item.value.field_search_value | default(omit) }}"
+      with_items: "{{ csv_data.dict | dict2items }}"
+      register: outputs
+
+    - name: Display information
+      ansible.builtin.debug:
+        msg: "{{ outputs }}"

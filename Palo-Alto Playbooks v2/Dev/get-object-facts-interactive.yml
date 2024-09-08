@@ -1,0 +1,31 @@
+---
+- name: Gather Object Facts
+  hosts: azure-firewall
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_prompt:
+
+  collections:
+    - paloaltonetworks.panos
+
+    - name: Gather Object Facts
+      paloaltonetworks.panos.panos_object_facts:
+        provider: "{{ device }}"
+        device_group: "{{ device_group | default(omit) }}"
+        name: "{{ name | default(omit) }}"
+        name_regex: "{{ name_regex | default(omit) }}"
+        object_type: "{{ object_type | mandatory }}"
+        field: "{{ field | default(omit) }}"
+        field_search_type: "{{ field_search_type | default(omit) }}"
+        field_search_value: "{{ field_search_value | default(omit) }}"
+      register: outputs
+
+    - name: Display information
+      ansible.builtin.debug:
+        msg: "{{ outputs }}"
