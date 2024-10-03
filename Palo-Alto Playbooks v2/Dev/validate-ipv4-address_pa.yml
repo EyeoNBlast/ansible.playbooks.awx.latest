@@ -10,7 +10,7 @@
       password: "{{ password }}"
 
   vars_files: 
-    - vars/ipaddress.yml
+    - vars/ip_address.yml
 
   collections:
     - paloaltonetworks.panos
