@@ -1,6 +1,6 @@
 ---
 - name: Commit firewall candidate configuration
-  hosts: "Palo-Alto"
+  hosts: "PaloAlto"
   connection: local
 
   vars:

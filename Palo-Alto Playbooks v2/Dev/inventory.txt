@@ -1,2 +1,2 @@
-[Palo-Alto]
+[PaloAlto]
 firewall
