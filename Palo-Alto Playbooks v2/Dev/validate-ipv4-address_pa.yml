@@ -9,6 +9,9 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
+  vars_files: 
+    - vars/ipaddress.yml
+
   collections:
     - paloaltonetworks.panos
 
