@@ -1,5 +1,5 @@
 ---
-ip_address: "192.168.4.45"
-username: "ansible"
-password: "PaloAlto1!"
+ip_address: "192.168.4.70"
+username: "admin"
+password: "PaloAlto!"
 
