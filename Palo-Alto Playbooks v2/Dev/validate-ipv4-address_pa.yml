@@ -17,5 +17,5 @@
 
   tasks: 
     - name: Validate if {{ source_ip_address }} is a valid within any zone on the firewall {{ hostname }}
-      ansible.builtin.set_fact:
-        data: "{{ '10.100.10.50' is ansible.utils.in_network '10.100.0.0/24' }}"
+      debug:
+        msg: "{{ '10.100.10.50' is ansible.utils.in_network '10.100.0.0/24' }}"
