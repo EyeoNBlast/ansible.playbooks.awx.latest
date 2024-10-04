@@ -16,6 +16,6 @@
     - paloaltonetworks.panos
 
   tasks: 
-    - name: Validate if "{{ source_ip_address }}" is a valid within any zone on the firewall {{ hostname }}
+    - name: Validate if {{ source_ip_address }} is a valid within any zone on the firewall {{ hostname }}
       debug:
         msg: "{{ '10.100.10.50' is ansible.utils.in_network '10.100.0.0/20' }}"
