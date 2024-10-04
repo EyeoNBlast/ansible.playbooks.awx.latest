@@ -19,4 +19,4 @@
   tasks: 
     - name: Validate if The IP address is a valid within any zone on the firewall {{ hostname }}
       debug:
-        msg: "{{ '{{ source_ip_address }}' is ansible.utils.in_network '10.100.0.0/20' }}"
+        msg: "{{ '10.100.10.50' is ansible.utils.in_network '10.100.0.0/20' }}"
