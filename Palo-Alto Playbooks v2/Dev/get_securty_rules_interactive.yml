@@ -23,4 +23,4 @@
 
     - name: Output
       ansible.builtin.debug:
-        msg: "{{ item|type_debug }}"
+        msg: "{{ sec_rules|type_debug }}"
