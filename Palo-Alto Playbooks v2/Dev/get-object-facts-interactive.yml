@@ -1,6 +1,6 @@
 ---
 - name: Gather Object Facts
-  hosts: PaloAlto
+  hosts: azure-firewall
   connection: local
 
   vars:
@@ -11,6 +11,13 @@
 
   vars_prompt:
 
+    - name: name
+      prompt: Enter In the Name of the Object 
+      
+    - name: object_type
+      prompt: Please Enter Object Type - Address(default), address-group, application, application-group, service, service-group
+      default: address
+
   collections:
     - paloaltonetworks.panos
 
@@ -18,7 +25,7 @@
       paloaltonetworks.panos.panos_object_facts:
         provider: "{{ device }}"
         device_group: "{{ device_group | default(omit) }}"
-        name: "{{ name | default(omit) }}"
+        name: "{{ name | mandatory }}"
         name_regex: "{{ name_regex | default(omit) }}"
         object_type: "{{ object_type | mandatory }}"
         field: "{{ field | default(omit) }}"
