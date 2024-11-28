@@ -14,10 +14,12 @@
 
     - name: name
       prompt: Enter In the Name of the Object 
+      private: false
       
     - name: object_type
       prompt: Please Enter Object Type - Address(default), address-group, application, application-group, service, service-group
       default: address
+      private: false
 
   collections:
     - paloaltonetworks.panos
