@@ -23,4 +23,4 @@
 
     - name: Output
       ansible.builtin.debug:
-        msg: "{{ sec_rules }}"
+        msg: "{{ sec_rules.stdout.split('\n') }}"
