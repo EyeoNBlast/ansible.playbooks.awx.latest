@@ -24,5 +24,5 @@
     - name: Output
       ansible.builtin.debug:
         msg: 
-          - "Rule_Name: {{ gathered_filter['rule_name']}}"
-          - "Application: {{ gathered_filter['application']}}"
+          - "Rule_Name: {{ panos_security_rule['rule_name'] }}"
+          - "Application: {{ panos_security_rule['application'] }}"
