@@ -2,6 +2,7 @@
 - name: Gather Object Facts
   hosts: azure-firewall
   connection: local
+  gather_facts: yes
 
   vars:
     device:
