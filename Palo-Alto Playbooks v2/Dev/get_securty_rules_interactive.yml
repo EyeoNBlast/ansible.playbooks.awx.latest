@@ -24,4 +24,4 @@
 
     - name: Output
       ansible.builtin.debug:
-        msg: '{{ sec_rules | dict2items | selectattr("rule_name", "application") | map(attribute="value") | list }}'
+        msg: '{{ sec_rules | dict2items | map(attribute="value") | selectattr("rule_name", "application") | list }}'
