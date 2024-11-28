@@ -1,6 +1,6 @@
 ---
 - name: Gather security rules
-  hosts: "azure-paloalto-2"
+  hosts: azure-paloalto-2
   connection: local
 
   vars:
