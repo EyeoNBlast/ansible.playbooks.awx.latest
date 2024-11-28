@@ -72,3 +72,10 @@
         application: "{{ application | default(omit) }}"
         service: "{{ service | default(omit) }}"
         action: "{{ action | mandatory }}"
+
+    - name: Commit candidate configuration
+      paloaltonetworks.panos.panos_commit_firewall:
+        provider: "{{ device }}"
+      register: results
+    - debug:
+        msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
