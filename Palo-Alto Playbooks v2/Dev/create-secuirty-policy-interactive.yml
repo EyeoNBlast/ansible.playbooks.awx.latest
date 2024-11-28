@@ -1,0 +1,74 @@
+---
+- name: Gather Object Facts
+  hosts: azure-firewall
+  connection: local
+  #gather_facts: yes
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_prompt:
+    - name: device_group
+      prompt: Panorama Only Entry
+      private: false
+
+    - name: rule_name
+      prompt: Enter Secuirty Policy Name e.g tba
+      private: false
+
+    - name: description
+      prompt: Enter Description of the Policies Purpose
+      private: false
+
+    - name: source_zone
+      prompt: Enter the Source Secuirty Zone
+      private: false
+
+    - name: source_ip
+      prompt: Enter in Source IP Address e.g 1.1.1.1/32
+      private: false
+
+    - name: destination_zone
+      prompt: Enter the Destiation Security Zone
+      private: false
+
+    - name: destination_ip
+      prompt: Enter in Destiation IP Address e.g 1.1.1.1/32
+      private: false
+
+    - name: application
+      prompt: Please Enter in the required application e.g ssh 
+      private: false
+      default: any
+
+    - name: service
+      prompt: Please Enter in the Required Service
+      private: false
+      default: application-default
+
+    - name: action
+      prompt: Please Specifiy Allow or Deny
+      private: false
+      default: allow
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create Security Policy
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        device_group: "{{ device_group | default(omit) }}"
+        rule_name: "{{ rule_name | mandatory }}"
+        description: "{{ description | mandatory }}"
+        tag_name: "{{ tag_name | default(omit) }}"
+        source_zone: "{{ source_zone | mandatory }}"
+        source_ip: "{{ source_ip | mandatory }}"
+        destination_zone: "{{ destination_zone | mandatory }}"
+        destination_ip: "{{ destination_ip | mandatory }}"
+        application: "{{ application | default(omit) }}"
+        service: "{{ service | default(omit) }}"
+        action: "{{ action | mandatory }}"
