@@ -23,6 +23,7 @@
 
     - name: Output
       ansible.builtin.debug:
+        var: "{{ gathered }}"
         msg: 
           - "Rule_name {{ gathered['rule_name'] }}"
           - "Application {{ gathered['application'] }}"
