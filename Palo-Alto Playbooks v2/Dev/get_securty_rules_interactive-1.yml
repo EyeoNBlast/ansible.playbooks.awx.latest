@@ -1,0 +1,29 @@
+---
+- name: Gather Object Facts
+  hosts: azure-firewall
+  connection: local
+  #gather_facts: yes
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Get all security rules
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        gathered_filter: "application contains tftp"
+        state: gathered
+      register: sec_rules
+
+    - name: Output
+      ansible.builtin.debug:
+        var: "{{ sec_rules }}"
+        msg: 
+        - "Rule_name {{ sec_rules['rule_name'] }}"
+        - "Application {{ sec_rules['application'] }}"
