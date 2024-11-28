@@ -17,7 +17,7 @@
     - name: Get all security rules
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
-        gathered_filter: "value contains rule_name"
+        gathered_filter: "application contains tftp"
         state: gathered
       register: sec_rules
 
