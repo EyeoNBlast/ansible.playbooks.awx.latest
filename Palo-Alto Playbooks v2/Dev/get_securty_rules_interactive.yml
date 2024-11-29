@@ -9,7 +9,6 @@
       ip_address: "{{ ip_address }}"
       username: "{{ username }}"
       password: "{{ password }}"
-    rule_name: "{{ rule_name }}"
 
   collections:
     - paloaltonetworks.panos
