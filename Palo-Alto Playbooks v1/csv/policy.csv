@@ -1,2 +1,2 @@
 rule_name;source_zone;source_ip;destination_zone;destination_ip;application;service;action;log_start;log_end;disabled
-Deny-Ping;any;any;any;any;ping;any;deny;TRUE;TRUE;true
+Maxs_Rule;z-prod-1;10.0.0.0/8;z-prod-2;0.0.0.0/0;ssl;service-https;allow;true;true;false
