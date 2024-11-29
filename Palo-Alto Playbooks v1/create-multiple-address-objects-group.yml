@@ -30,10 +30,10 @@
 
     - name: Create a list of the address objects
       ansible.builtin.set_fact:
-        #address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
+        address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
 
     - name: Add address objects to address group 
       paloaltonetworks.panos.panos_address_group:
         provider: "{{ device }}"
-        #name: test_group
-        #static_value: "{{ address_objects_list }}"
+        name: Maxs Group of Stuff
+        static_value: "{{ address_objects_list }}"
