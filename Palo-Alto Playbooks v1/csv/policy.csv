@@ -1,4 +1,4 @@
 rule_name;source_zone;source_ip;destination_zone;destination_ip;application;service;action;log_start;log_end;disabled
 Maxs_Rule;z-prod-1;10.0.0.0/8;z-prod-2;0.0.0.0/0;ssl;service-https;allow;true;true;false
 Subhas_Rule;z-prod-1;10.0.0.1/24;z-prod-2;50.0.0.50/32;tftp,ftp;any;allow;true;true;false
-Anu_Rule;z-prod-1;10.0.0.30/32;z-prod-2;10.0.1.30/32;ssh,vmware;allow;application-default;true;true;false
+Anu_Rule;z-prod-1;10.0.0.30/32;z-prod-2;10.0.1.30/32;ssh,vmware;allow;any;true;true;false
