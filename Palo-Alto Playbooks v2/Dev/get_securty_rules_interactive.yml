@@ -10,6 +10,12 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
+  vars_prompt:
+    - name: gather_filter_input
+      prompt: Enter What Secuirty Rules you Wish to See
+      private: false
+      #default: "*"
+
   collections:
     - paloaltonetworks.panos
 
@@ -17,7 +23,7 @@
     - name: Get all security rules
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
-        gathered_filter: "application contains tftp"
+        gathered_filter: "{{ gather_filter_input }}"
         state: gathered
       register: sec_rules
 
