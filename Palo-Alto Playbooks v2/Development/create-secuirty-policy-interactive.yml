@@ -78,27 +78,27 @@
       private: false
       default: any
 
-    - name: service_name_new
-      prompt: Please Enter the name of the service object - protocol tcp/udp - port num e.g tcp-80 udp-53
-      private: false
+    - #name: service_name_new
+      #prompt: Please Enter the name of the service object - protocol tcp/udp - port num e.g tcp-80 udp-53
+      #private: false
 
-    - name: service_name_protocol
-      prompt: Please Enter the protocol tcp or udp
-      private: false
-      default: tcp
+    - #name: service_name_protocol
+      #prompt: Please Enter the protocol tcp or udp
+      #private: false
+      #default: tcp
 
-    - name: service_name_destination_port
-      prompt: Please Enter the port number 
-      private: false
+    - #name: service_name_destination_port
+      #prompt: Please Enter the port number 
+      #private: false
 
-    - name: service_name_description
-      prompt: Please Enter in a description of the service object
-      private: false
+    - #name: service_name_description
+      #prompt: Please Enter in a description of the service object
+      #private: false
 
     - name: service
       prompt: Please Enter in the Required Service object
       private: false
-      default: "service_name_new"
+      default: application-default
 
     - name: action
       prompt: Please Specifiy Allow or Deny
@@ -129,9 +129,9 @@
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
         #protocol: "{{ service_name_protocol | default(omit) }}"
-        name: "{{ service_name_new | default(omit) }}"
-        destination_port: "{{ service_name_protocol | default(omit) }}"
-        description: "{{ destination_ip_new_description | default(omit) }}"
+        #name: "{{ service_name_new | default(omit) }}"
+        #destination_port: "{{ service_name_protocol | default(omit) }}"
+        #description: "{{ destination_ip_new_description | default(omit) }}"
 
     - name: Create Security Policy
       paloaltonetworks.panos.panos_security_rule:
