@@ -78,20 +78,20 @@
       private: false
       default: any
 
-    - #name: service_name_new
+    #-name: service_name_new
       #prompt: Please Enter the name of the service object - protocol tcp/udp - port num e.g tcp-80 udp-53
       #private: false
 
-    - #name: service_name_protocol
+    #- name: service_name_protocol
       #prompt: Please Enter the protocol tcp or udp
       #private: false
       #default: tcp
 
-    - #name: service_name_destination_port
+    #- name: service_name_destination_port
       #prompt: Please Enter the port number 
       #private: false
 
-    - #name: service_name_description
+    #- #name: service_name_description
       #prompt: Please Enter in a description of the service object
       #private: false
 
