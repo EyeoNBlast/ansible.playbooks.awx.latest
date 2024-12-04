@@ -127,7 +127,7 @@
     - name: Create new Service Objects
       paloaltonetworks.panos.panos_service_object:
         provider: "{{ device }}"
-        protocol: "{{ service_name_protocol | default(omit) }}"
+        #protocol: "{{ service_name_protocol | default(omit) }}"
         name: "{{ service_name_new | default(omit) }}"
         destination_port: "{{ service_name_protocol | default(omit) }}"
         description: "{{ destination_ip_new_description | default(omit) }}"
