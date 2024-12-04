@@ -33,7 +33,7 @@
 
     - name: source_ip_new_type
       prompt: Enter type of Object ip-netmask(default), ip-range, fqdn
-      default: ip-netmask
+      #default: ip-netmask
 
     - name: source_ip_new_value
       prompt: Enter the IP address of the object e.g 10.10.10.10/32 or 10.10.10.0/28 if ip-range
