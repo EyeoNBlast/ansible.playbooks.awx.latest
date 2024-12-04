@@ -85,6 +85,7 @@
     - name: service_name_protocol
       prompt: Please Enter the protocol tcp or udp
       private: false
+      default: tcp
 
     - name: service_name_destination_port
       prompt: Please Enter the port number 
