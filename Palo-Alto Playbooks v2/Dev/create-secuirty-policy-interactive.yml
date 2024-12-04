@@ -1,6 +1,6 @@
 ---
 - name: Gather Object Facts
-  hosts: azure-firewall
+  hosts: firewall
   connection: local
   #gather_facts: yes
 
@@ -27,27 +27,77 @@
       prompt: Enter the Source Secuirty Zone
       private: false
 
-    - name: source_ip
-      prompt: Enter in Source IP Address e.g 1.1.1.1/32
+    - name: source_ip_new_name
+      prompt: New Device - Please create a new object - Enter in object name 'server-001_ip-address'
       private: false
+
+    - name: source_ip_new_type
+      prompt: Enter type of Object ip-netmask(default), ip-range, fqdn
+      default: ip-netmask
+
+    - name: source_ip_new_value
+      prompt: Enter the IP address of the object e.g 10.10.10.10/32 or 10.10.10.0/28 if ip-range
+      private: false
+
+    - name: source_ip_new_description
+      prompt: Enter a description of this object
+      private: false
+
+    - name: source_ip
+      prompt: Enter in Source IP Address server-001_ip-address e.g server-001_1.1.1.1/32
+      private: false
+      default: "source_ip_new_name"
 
     - name: destination_zone
       prompt: Enter the Destiation Security Zone
       private: false
 
-    - name: destination_ip
-      prompt: Enter in Destiation IP Address e.g 1.1.1.1/32
+    - name: destination_ip_new_name
+      prompt: New Device - Please create a new object - Enter in object name 'server-001_ip-address'
       private: false
 
+    - name: destination_ip_new_type
+      prompt: Enter type of Object ip-netmask(default), ip-range, fqdn
+      default: ip-netmask
+
+    - name: destination_ip_new_value
+      prompt: Enter the IP address of the object e.g 10.10.10.10/32 or 10.10.10.0/28 if ip-range
+      private: false
+
+    - name: destination_ip_new_description
+      prompt: Enter a description of this object
+      private: false
+
+    - name: destination_ip
+      prompt: Enter in Destiation IP Address server-001_ip-address e.g server-001_1.1.1.1/32
+      private: false
+      default: "destination_ip_new_name"
+
     - name: application
-      prompt: Please Enter in the required application e.g ssh 
+      prompt: Please Enter in the required application e.g ssh or ssh,ftp,tftp for multiple applications
       private: false
       default: any
 
-    - name: service
-      prompt: Please Enter in the Required Service
+    - name: service_name_new
+      prompt: Please Enter the name of the service object - protocol tcp/udp - port num e.g tcp-80 udp-53
       private: false
-      default: application-default
+
+    - name: service_name_protocol
+      prompt: Please Enter the protocol tcp or udp
+      private: false
+
+    - name: service_name_destination_port
+      prompt: Please Enter the port number 
+      private: false
+
+    - name: service_name_description
+      prompt: Please Enter in a description of the service object
+      private: false
+
+    - name: service
+      prompt: Please Enter in the Required Service object
+      private: false
+      default: "service_name_new"
 
     - name: action
       prompt: Please Specifiy Allow or Deny
@@ -58,6 +108,30 @@
     - paloaltonetworks.panos
 
   tasks:
+    - name: Create Address Object New Source
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ source_ip_new_name | default(omit) }}"
+        address_type: "{{ source_ip_new_type | default(omit) }}"
+        value: "{{ source_ip_new_value | default(omit) }}"
+        description: "{{ source_ip_new_description | default(omit) }}"
+
+    - name: Create Address Object New Destination
+      paloaltonetworks.panos.panos_address_object:
+        provider: "{{ device }}"
+        name: "{{ destination_ip_new_name | default(omit) }}"
+        address_type: "{{ destination_ip_new_type | default(omit) }}"
+        value: "{{ destination_ip_new_value | default(omit) }}"
+        description: "{{ destination_ip_new_description | default(omit) }}"
+
+    - name: Create new Service Objects
+      paloaltonetworks.panos.panos_service_object:
+        provider: "{{ device }}"
+        protocol: "{{ service_name_protocol | default(omit) }}"
+        name: "{{ service_name_new | default(omit) }}"
+        destination_port: "{{ service_name_protocol | default(omit) }}"
+        description: "{{ destination_ip_new_description | default(omit) }}"
+
     - name: Create Security Policy
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
@@ -72,6 +146,7 @@
         application: "{{ application | default(omit) }}"
         service: "{{ service | default(omit) }}"
         action: "{{ action | mandatory }}"
+
 
     - name: Commit candidate configuration
       paloaltonetworks.panos.panos_commit_firewall:
