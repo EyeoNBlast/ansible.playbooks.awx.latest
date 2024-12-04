@@ -47,7 +47,7 @@
     - name: source_ip
       prompt: Enter in Source IP Address server-001_ip-address e.g server-001_1.1.1.1/32
       private: false
-      default: source_ip_new_name
+      #default: source_ip_new_name
 
     - name: destination_zone
       prompt: Enter the Destiation Security Zone
@@ -72,7 +72,7 @@
     - name: destination_ip
       prompt: Enter in Destiation IP Address server-001_ip-address e.g server-001_1.1.1.1/32
       private: false
-      default: destination_ip_new_name
+      #default: destination_ip_new_name
 
     - name: application
       prompt: Please Enter in the required application e.g ssh or ssh,ftp,tftp for multiple applications
