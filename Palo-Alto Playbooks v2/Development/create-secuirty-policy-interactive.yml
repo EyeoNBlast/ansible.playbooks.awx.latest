@@ -116,6 +116,7 @@
         address_type: "{{ source_ip_new_type | default(omit) }}"
         value: "{{ source_ip_new_value | default(omit) }}"
         description: "{{ source_ip_new_description | default(omit) }}"
+        ignore_errors: true
 
     - name: Create Address Object New Destination
       paloaltonetworks.panos.panos_address_object:
@@ -124,6 +125,7 @@
         address_type: "{{ destination_ip_new_type | default(omit) }}"
         value: "{{ destination_ip_new_value | default(omit) }}"
         description: "{{ destination_ip_new_description | default(omit) }}"
+        ignore_errors: true
 
     #- name: Create new Service Objects
       #paloaltonetworks.panos.panos_service_object:
