@@ -29,4 +29,4 @@
 
     - name: Output
       ansible.builtin.debug:
-        msg: '{{ sec_rules | dict2items | list }}'
+        msg: '{{ sec_rules | dict2items | map(attribute="key" | list }}'
