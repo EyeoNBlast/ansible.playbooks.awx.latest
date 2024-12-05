@@ -1,6 +1,6 @@
 ---
 - name: Gather Object Facts
-  hosts: azure-firewall
+  hosts: firewall
   connection: local
   #gather_facts: yes
 
