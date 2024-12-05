@@ -1,0 +1,25 @@
+---
+- name: Gather Object Facts
+  hosts: firewall
+  connection: local
+  ignore_errors: true
+  #gather_facts: yes
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    
+
+  vars_prompt:
+    - name: create_address_object
+      prompt: Do you need to create a new address object? Yes/No
+      private: false
+      default: No
+
+  tasks:
+    - import_playbook: create-address-object-interactive.yml
+      when: create_address_object == Yes
+      
+
