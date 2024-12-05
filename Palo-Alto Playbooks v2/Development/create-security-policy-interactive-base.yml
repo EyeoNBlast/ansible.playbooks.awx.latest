@@ -2,7 +2,7 @@
 - name: Gather Object Facts
   hosts: firewall
   connection: local
-  ignore_errors: true
+  #ignore_errors: true
   #gather_facts: yes
 
   vars:
@@ -10,6 +10,7 @@
       ip_address: "{{ ip_address }}"
       username: "{{ username }}"
       password: "{{ password }}"
+    create_address_object: 
     
 
   vars_prompt:
@@ -19,7 +20,7 @@
       default: No
 
   tasks:
-    - include_tasks: create-address-object-interactive.yml
+    - import_tasks: create-address-object-interactive.yml
       when: create_address_object == Yes
       
 
