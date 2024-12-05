@@ -28,15 +28,6 @@
       prompt: Enter a description of this object
       private: false
 
-    - name: source_ip
-      prompt: Enter in Source IP Address server-001_ip-address e.g server-001_1.1.1.1/32
-      private: false
-      default: "{{ source_ip_new_name }}"
-
-    - name: destination_zone
-      prompt: Enter the Destiation Security Zone
-      private: false
-
     - name: destination_ip_new_name
       prompt: New Device - Please create a new object - Enter in object name 'server-001_ip-address'
       private: false
@@ -53,11 +44,6 @@
       prompt: Enter a description of this object
       private: false
 
-    - name: destination_ip
-      prompt: Enter in Destiation IP Address server-001_ip-address e.g server-001_1.1.1.1/32
-      private: false
-      default: "{{ destination_ip_new_name }}"
-
   collections:
     - paloaltonetworks.panos
 
@@ -65,22 +51,8 @@
     - name: Create Address Object New Source
       paloaltonetworks.panos.panos_address_object:
         provider: "{{ device }}"
-        name: "{{ source_ip_new_name | default(omit) }}"
-        address_type: "{{ source_ip_new_type | default(omit) }}"
-        value: "{{ source_ip_new_value | default(omit) }}"
-        description: "{{ source_ip_new_description | default(omit) }}"
-
-    - name: Create Address Object New Destination
-      paloaltonetworks.panos.panos_address_object:
-        provider: "{{ device }}"
-        name: "{{ destination_ip_new_name | default(omit) }}"
-        address_type: "{{ destination_ip_new_type | default(omit) }}"
-        value: "{{ destination_ip_new_value | default(omit) }}"
-        description: "{{ destination_ip_new_description | default(omit) }}"
-
-    - name: Commit candidate configuration
-      paloaltonetworks.panos.panos_commit_firewall:
-        provider: "{{ device }}"
-      register: results
-    - debug:
-        msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
+        name: "{{ item.value.source_ip_new_name | default(omit) }}"
+        address_type: "{{ item.value.source_ip_new_type | default(omit) }}"
+        value: "{{ item.value.source_ip_new_value | default(omit) }}"
+        description: "{{ item.value.source_ip_new_description | default(omit) }}"
+      with_items: "{{ source_ip_new_name.dict | source_ip_new_value.dict |  source_ip_new_value | source_ip_new_description | dict2items }}"

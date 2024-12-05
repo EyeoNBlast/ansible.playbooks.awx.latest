@@ -1,0 +1,39 @@
+---
+- name: Create Security Policy From CSV File
+  hosts: azure-firewall
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+    csv_filename: "csv/policy.csv"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Read CSV file
+      ansible.builtin.read_csv:
+        path: "{{ csv_filename }}"
+        key: rule_name
+        delimiter: ';'
+      register: csv_data
+
+    - name: Create security policy variables
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        rule_name: "{{ item.value.rule_name }}"
+        source_zone: "{{ item.value.source_zone }}"
+        source_ip: "{{ item.value.source_ip }}"
+        destination_zone: "{{ item.value.destination_zone }}"
+        destination_ip: "{{ item.value.destination_ip }}"
+        application: "{{ item.value.application }}"
+        service: "{{ item.value.service }}"
+        action: "{{ item.value.action }}"
+        log_start: "{{ item.value.log_start }}"
+        log_end: "{{ item.value.log_end }}"
+        disabled: "{{ item.value.disabled }}"
+      with_items: "{{ csv_data.dict | dict2items }}"
