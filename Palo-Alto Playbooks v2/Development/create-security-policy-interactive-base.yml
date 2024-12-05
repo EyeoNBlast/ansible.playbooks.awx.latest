@@ -19,8 +19,7 @@
       default: No
 
   tasks:
-    - name: 
-      ansible.builtin.import_playbook: create-address-object-interactive.yml
+    - include_tasks: create-address-object-interactive.yml
       when: create_address_object == Yes
       
 
