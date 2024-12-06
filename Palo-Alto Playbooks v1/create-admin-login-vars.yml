@@ -1,5 +1,5 @@
-- name: Apply Configurations to Firewall
-  hosts: "firewall"
+- name: Create Admin Login
+  hosts: firewall
   connection: local
 
   vars:
