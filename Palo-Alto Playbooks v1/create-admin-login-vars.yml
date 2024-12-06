@@ -1,0 +1,22 @@
+- name: Apply Configurations to Firewall
+  hosts: "firewall"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_files:
+  - "{{ location }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create new Admin Account
+      paloaltonetworks.panos.panos_administrator:
+        provider: "{{ device }}"
+        admin_username: "{{ new_admin_username }}"
+        admin_password: "{{ new_admin_password }}"
