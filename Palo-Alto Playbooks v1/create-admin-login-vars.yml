@@ -20,3 +20,4 @@
         provider: "{{ device }}"
         admin_username: "{{ new_admin_username }}"
         admin_password: "{{ new_admin_password }}"
+        superuser: true
