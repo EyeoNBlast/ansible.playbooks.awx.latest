@@ -1,0 +1,40 @@
+---
+- name: Create Service Objects from a CSV Source File
+  hosts: "azure-paloalto-2"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+    csv_filename: "{{ service_csv }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Read CSV file
+      ansible.builtin.read_csv:
+        path: "{{ csv_filename }}"
+        key: name
+      register: csv_data
+
+    - name: Create address objects
+      paloaltonetworks.panos.panos_service_object:
+        provider: "{{ device }}"
+        name: "{{ item.value.name }}"
+        protocol: "{{ item.value.protocol }}"
+        destination_port: "{{ item.value.destination_port }}"
+      with_items: "{{ csv_data.dict | dict2items }}"
+
+    - name: Create a list of the service objects
+      ansible.builtin.set_fact:
+        address_objects_list: "{{ csv_data.dict | dict2items | map(attribute='key') | list }}"
+
+    - name: Add address objects to service group
+      paloaltonetworks.panos.panos_service_group:
+        provider: "{{ device }}"
+        name: "{{ service_group_name }}"
+        value: "{{ address_objects_list }}"
