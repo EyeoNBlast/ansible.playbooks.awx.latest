@@ -1,0 +1,31 @@
+---
+- name: Gather Object Facts
+  hosts: firewall
+  connection: local
+  ignore_errors: true
+  #gather_facts: yes
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create Security Policy
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        device_group: "{{ device_group | default(omit) }}"
+        rule_name: "{{ rule_name | mandatory }}"
+        description: "{{ description | mandatory }}"
+        tag_name: "{{ tag_name | default(omit) }}"
+        source_zone: "{{ source_zone | mandatory }}"
+        source_ip: "{{ source_ip | mandatory }}"
+        destination_zone: "{{ destination_zone | mandatory }}"
+        destination_ip: "{{ destination_ip | mandatory }}"
+        application: "{{ application | default(omit) }}"
+        service: "{{ service | default(application-default) }}"
+        action: "{{ action_commit | default(allow) }}"
