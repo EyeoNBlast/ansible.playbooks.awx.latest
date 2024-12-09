@@ -11,6 +11,9 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
+  var_files:
+    - "{{ secpol }}"
+
   collections:
     - paloaltonetworks.panos
 
@@ -26,6 +29,6 @@
         source_ip: "{{ source_ip | mandatory }}"
         destination_zone: "{{ destination_zone | mandatory }}"
         destination_ip: "{{ destination_ip | mandatory }}"
-        application: "{{ application | default(omit) }}"
+        application: "{{ application | default(any) }}"
         service: "{{ service | default(application-default) }}"
         action: "{{ action_commit | default(allow) }}"

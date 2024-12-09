@@ -1,0 +1,29 @@
+---
+##############################################
+#Panorama Group
+device_group:
+#Name of The Secuirty Policy
+# e.g. On_Prem-to-VDC_Service
+rule_name:
+#What This Secuirty Policy Enables
+# Reg Num Date Description Y123456 01/01/2020 This Enables connectivity from Server A to Server A
+description:
+#Source Secuirty Zone
+#Refer to Diagram
+source_zone:
+#Source IP address or Address-Group Name
+source_ip:
+#Desctination Secuirty Zone
+#Refer to Diagram
+destination_zone:
+#Destiation IP Address or Address-Group
+destination_ip:
+# What application(s) to enable on the policy
+# e.g ssh or ssh,ftp,ssl
+application:
+# Any non-standard application ports to be enabled
+service:
+# Allow or Deny Policy Default:allow
+action_commit:
+
+
