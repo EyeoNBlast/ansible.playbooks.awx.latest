@@ -12,7 +12,7 @@ description: This is a test policy to test a playbook
 #Refer to Diagram
 source_zone: z-zone-2
 #Source IP address or Address-Group Name
-source_ip: testserver-001_10.10.20.10-32,testserver-002_10.10.20.20-32
+source_ip: testserver-001_10.10.20.10-32, testserver-002_10.10.20.20-32
 #Desctination Secuirty Zone
 #Refer to Diagram
 destination_zone: z-zone-2
