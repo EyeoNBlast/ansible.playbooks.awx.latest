@@ -42,8 +42,4 @@
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
-<<<<<<< HEAD
-        secure: try
-=======
->>>>>>> 23b2bc5ac7b0e63d508539b1c6d8bef1c8ddc2b1
       delegate_to: localhost
