@@ -1,6 +1,6 @@
 ---
 - name: Create Address Object from a CSV Source File
-  hosts: azure-firewall
+  hosts: firewall
   connection: local
 
   vars:

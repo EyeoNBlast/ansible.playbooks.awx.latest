@@ -1,6 +1,6 @@
 ---
 - name: Create Service Objects from a CSV Source File
-  hosts: "azure-paloalto-2"
+  hosts: firewall
   connection: local
 
   vars:
