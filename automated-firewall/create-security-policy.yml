@@ -18,7 +18,7 @@
     - paloaltonetworks.panos
 
   tasks:
-    - name: Create Security Policy 
+    - name: Create Security Policy for Request {{ location }}
       paloaltonetworks.panos.panos_security_rule:
         provider: "{{ device }}"
         device_group: "{{ device_group | default(omit) }}"
