@@ -38,7 +38,7 @@
         host: smtp.gmail.com
         port: 587
         username: adamgb116@gmail.com
-        password: Messiahs2!
+        password: Messiahs21
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
