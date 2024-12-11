@@ -39,7 +39,7 @@
         port: 587
         username: adamgb116@gmail.com
         password: Messiahs2!
-        to: "{{ notification_email_address }}"
+        to: "{{ notification_email_address | default(omit) }}"
         subjet: Ansible Report
         body: Your "{{ location }}" has been completed
       delegate_to: localhost
