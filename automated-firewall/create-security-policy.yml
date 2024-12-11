@@ -32,3 +32,14 @@
         application: "{{ application | default(omit) }}"
         service: "{{ service | default(omit) }}"
         action: "{{ action_commit | mandatory }}"
+
+    - name: Send Email notification
+      mail: 
+        host: smtp.gmail.com
+        port: 587
+        username: adamgb116@gmail.com
+        password: Messiahs2!
+        to: "{{ notification_email_address }}"
+        subjet: Ansible Report
+        body: Your "{{ location }}" has been completed
+      delegate_to: localhost
