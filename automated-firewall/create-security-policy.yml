@@ -35,10 +35,10 @@
 
     - name: Send Email notification
       community.general.mail: 
-        host: smtp.gmail.com
+        host: send.xtra.co.nz
         port: 587
-        username: adamgb116@gmail.com
-        password: Messiahs21
+        username: a.gallen.brydon@xtra.co.nz
+        password: today98
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
