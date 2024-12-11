@@ -12,12 +12,12 @@ description: This is a test policy to test a playbook
 #Refer to Diagram
 source_zone: z-zone-2
 #Source IP address or Address-Group Name
-source_ip: testserver-001_10.10.20.10-32, testserver-002_10.10.20.20-32
+source_ip: testserver-001_10.10.20.10-32
 #Desctination Secuirty Zone
 #Refer to Diagram
 destination_zone: z-zone-2
 #Destiation IP Address or Address-Group
-destination_ip: testserver-001_10.10.10.10-32, testserver-002_10.10.10.20-32
+destination_ip: testserver-001_10.10.10.10-32
 # What application(s) to enable on the policy
 # e.g ssh or ssh,ftp,ssl
 application: ssh,ftp,ssl
