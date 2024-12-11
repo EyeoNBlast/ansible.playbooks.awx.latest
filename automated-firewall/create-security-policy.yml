@@ -34,7 +34,7 @@
         action: "{{ action_commit | mandatory }}"
 
     - name: Send Email notification
-      mail: 
+      community.general.mail: 
         host: smtp.gmail.com
         port: 587
         username: adamgb116@gmail.com
@@ -42,4 +42,5 @@
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
+        secure: always
       delegate_to: localhost
