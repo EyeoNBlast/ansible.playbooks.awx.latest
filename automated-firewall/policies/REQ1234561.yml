@@ -20,7 +20,7 @@ destination_zone: z-zone-2
 destination_ip: 10.10.20.10/32
 # What application(s) to enable on the policy
 # e.g ssh or ssh,ftp,ssl
-application: ssl,ftp,ssl,ms-rdp
+application: ssl,ftp,ssh,ms-rdp
 # Any non-standard application ports to be enabled
 service: application-default
 # Allow or Deny Policy Default:allow
