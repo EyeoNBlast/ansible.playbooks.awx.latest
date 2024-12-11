@@ -11,7 +11,7 @@
       username: "{{ username }}"
       password: "{{ password }}"
 
-  var_files:
+  vars_files:
     - "{{ location }}"
 
   collections:
