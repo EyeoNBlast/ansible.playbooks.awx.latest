@@ -39,7 +39,7 @@
         port: 587
         username: adamgb116@gmail.com
         password: vkby bxnf ckvr bvzq
-        to: adamgb116@gmail.com
+        to: "{{ notification_email_address }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
         secure: starttls
