@@ -35,10 +35,10 @@
 
     - name: Send Email notification
       community.general.mail: 
-        host: smtp-mail.outlook.com
+        host: smtp.gmail.com
         port: 587
-        username: ansible334321@outlook.com
-        password: xkbqayfplpuorqal
+        username: adamgb116@gmail.com
+        password: vkby bxnf ckvr bvzq
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
