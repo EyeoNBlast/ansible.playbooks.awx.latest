@@ -1,0 +1,32 @@
+---
+- name: Gather Object Facts
+  hosts: firewall
+  connection: local
+  #gather_facts: yes
+
+  vars:
+    device:
+      ip_address: "{{ ip_address }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  vars_prompt:
+    - name: gather_filter_input
+      prompt: Enter What Secuirty Rules you Wish to See
+      private: false
+      #default: "*"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Get all security rules
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        gathered_filter: "{{ gather_filter_input }}"
+        state: gathered
+      register: sec_rules
+
+    - name: Output
+      ansible.builtin.debug:
+        msg: '{{ sec_rules | dict2items | map(attribute="value") | list }}'
