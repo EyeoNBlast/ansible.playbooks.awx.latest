@@ -38,7 +38,7 @@
         host: smtp-mail.outlook.com
         port: 587
         username: ansible334321@outlook.com
-        password: Monday2033!@
+        password: xkbqayfplpuorqal
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
