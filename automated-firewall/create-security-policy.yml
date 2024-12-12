@@ -35,12 +35,12 @@
 
     - name: Send Email notification
       community.general.mail: 
-        host: send.xtra.co.nz
+        host: smtp-mail.outlook.com
         port: 587
-        username: a.gallen.brydon@xtra.co.nz
-        password: today98
+        username: ansible334321@outlook.com
+        password: Monday2033!@
         to: "{{ notification_email_address | default(omit) }}"
         subject: Ansible Report
         body: Your "{{ location }}" has been completed
-        secure: try
+        secure: starttls
       delegate_to: localhost
