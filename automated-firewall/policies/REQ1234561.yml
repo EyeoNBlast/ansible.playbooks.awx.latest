@@ -1,5 +1,7 @@
 ---
 ##############################################
+# Email Address to be notifed when policy is in place
+notification_email_address: adamgb116@gmail.com
 #Panorama Group
 device_group:
 #Name of The Secuirty Policy
