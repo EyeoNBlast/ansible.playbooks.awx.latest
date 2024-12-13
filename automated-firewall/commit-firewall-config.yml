@@ -19,3 +19,15 @@
       register: results
     - debug:
         msg: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
+
+    - name: Send Email notification
+      community.general.mail: 
+        host: smtp.gmail.com
+        port: 587
+        username: adamgb116@gmail.com
+        password: vkby bxnf ckvr bvzq
+        to: adamgb116@gmail.com
+        subject: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
+        body: "Commit with Job ID: {{ results.jobid }} had output: {{ results.details }}"
+        secure: starttls
+      delegate_to: localhost
