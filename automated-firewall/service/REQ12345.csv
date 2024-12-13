@@ -1,0 +1,7 @@
+name,protocol,destination_port,description,tag
+tcp-80,tcp,80
+tcp-443,tcp,443
+tcp-1000,tcp,1000
+udp-111,udp,111
+udp-1000,udp,1000
+
