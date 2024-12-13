@@ -21,7 +21,7 @@
         key: hostname
       register: csv_data
 
-    - name: Create address objects from {{ address_csv }}
+    - name: Create address objects {{ address_csv }}
       paloaltonetworks.panos.panos_address_object:
         provider: "{{ device }}"
         name: "{{ item.value.hostname }}"
